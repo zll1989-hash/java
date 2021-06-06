@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" debug="true">
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>/var/log/ejlerp/cache.log</File>
+        <encoder>
+            <pattern>%-20(%d{yyyy-MM-dd HH:mm:ss.SSS}) [%thread] %-5level%logger{80}.%method - %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/var/log/ejlerp/cache.log%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!--日志文件保留天数-->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-20(%d{yyyy-MM-dd HH:mm:ss.SSS}) [%thread] %-5level%logger{80}.%method - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <logger name="org.apache" level="DEBUG"/>
+    <logger name="org.hibernate" level="DEBUG"/>
+    <logger name="org.springframework" level="DEBUG"/>
+    <logger name="net.sf" level="DEBUG"/>
+    <logger name="com.alibaba" level="DEBUG"/>
+    <logger name="com.ulisesbocchio" level="DEBUG"/>
+    <logger name="com.ctrip" level="DEBUG"/>
+    <logger name="io.netty" level="DEBUG"/>
+    <logger name="io.lettuce" level="DEBUG"/>
+    <root level="DEBUG">
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

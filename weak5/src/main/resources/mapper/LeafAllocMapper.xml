@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ejlerp.cache.mapper.LeafAllocMapper">
+    <resultMap id="BaseResultMap" type="com.ejlerp.cache.model.LeafAlloc">
+        <!--@mbg.generated-->
+        <!--@Table leaf_alloc-->
+        <id column="biz_tag" jdbcType="VARCHAR" property="bizTag"/>
+        <result column="max_id" jdbcType="BIGINT" property="maxId"/>
+        <result column="step" jdbcType="INTEGER" property="step"/>
+        <result column="description" jdbcType="VARCHAR" property="description"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        biz_tag, max_id, step, description, update_time
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from leaf_alloc
+        where biz_tag = #{bizTag,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--@mbg.generated-->
+        delete from leaf_alloc
+        where biz_tag = #{bizTag,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.ejlerp.cache.model.LeafAlloc">
+        <!--@mbg.generated-->
+        insert into leaf_alloc (biz_tag, max_id, step,
+        description, update_time)
+        values (#{bizTag,jdbcType=VARCHAR}, #{maxId,jdbcType=BIGINT}, #{step,jdbcType=INTEGER},
+        #{description,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" parameterType="com.ejlerp.cache.model.LeafAlloc">
+        <!--@mbg.generated-->
+        insert into leaf_alloc
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="bizTag != null">
+                biz_tag,
+            </if>
+            <if test="maxId != null">
+                max_id,
+            </if>
+            <if test="step != null">
+                step,
+            </if>
+            <if test="description != null">
+                description,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="bizTag != null">
+                #{bizTag,jdbcType=VARCHAR},
+            </if>
+            <if test="maxId != null">
+                #{maxId,jdbcType=BIGINT},
+            </if>
+            <if test="step != null">
+                #{step,jdbcType=INTEGER},
+            </if>
+            <if test="description != null">
+                #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.ejlerp.cache.model.LeafAlloc">
+        <!--@mbg.generated-->
+        update leaf_alloc
+        <set>
+            <if test="maxId != null">
+                max_id = #{maxId,jdbcType=BIGINT},
+            </if>
+            <if test="step != null">
+                step = #{step,jdbcType=INTEGER},
+            </if>
+            <if test="description != null">
+                description = #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where biz_tag = #{bizTag,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.ejlerp.cache.model.LeafAlloc">
+        <!--@mbg.generated-->
+        update leaf_alloc
+        set max_id = #{maxId,jdbcType=BIGINT},
+        step = #{step,jdbcType=INTEGER},
+        description = #{description,jdbcType=VARCHAR},
+        update_time = #{updateTime,jdbcType=TIMESTAMP}
+        where biz_tag = #{bizTag,jdbcType=VARCHAR}
+    </update>
+    <update id="updateBatch" parameterType="java.util.List">
+        <!--@mbg.generated-->
+        update leaf_alloc
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="max_id = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when biz_tag = #{item.bizTag,jdbcType=VARCHAR} then #{item.maxId,jdbcType=BIGINT}
+                </foreach>
+            </trim>
+            <trim prefix="step = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when biz_tag = #{item.bizTag,jdbcType=VARCHAR} then #{item.step,jdbcType=INTEGER}
+                </foreach>
+            </trim>
+            <trim prefix="description = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when biz_tag = #{item.bizTag,jdbcType=VARCHAR} then #{item.description,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="update_time = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when biz_tag = #{item.bizTag,jdbcType=VARCHAR} then #{item.updateTime,jdbcType=TIMESTAMP}
+                </foreach>
+            </trim>
+        </trim>
+        where biz_tag in
+        <foreach close=")" collection="list" item="item" open="(" separator=", ">
+            #{item.bizTag,jdbcType=VARCHAR}
+        </foreach>
+    </update>
+    <update id="updateBatchSelective" parameterType="java.util.List">
+        <!--@mbg.generated-->
+        update leaf_alloc
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="max_id = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    <if test="item.maxId != null">
+                        when biz_tag = #{item.bizTag,jdbcType=VARCHAR} then #{item.maxId,jdbcType=BIGINT}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="step = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    <if test="item.step != null">
+                        when biz_tag = #{item.bizTag,jdbcType=VARCHAR} then #{item.step,jdbcType=INTEGER}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="description = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    <if test="item.description != null">
+                        when biz_tag = #{item.bizTag,jdbcType=VARCHAR} then #{item.description,jdbcType=VARCHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="update_time = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    <if test="item.updateTime != null">
+                        when biz_tag = #{item.bizTag,jdbcType=VARCHAR} then #{item.updateTime,jdbcType=TIMESTAMP}
+                    </if>
+                </foreach>
+            </trim>
+        </trim>
+        where biz_tag in
+        <foreach close=")" collection="list" item="item" open="(" separator=", ">
+            #{item.bizTag,jdbcType=VARCHAR}
+        </foreach>
+    </update>
+    <insert id="batchInsert" parameterType="map">
+        <!--@mbg.generated-->
+        insert into leaf_alloc
+        (biz_tag, max_id, step, description, update_time)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.bizTag,jdbcType=VARCHAR}, #{item.maxId,jdbcType=BIGINT}, #{item.step,jdbcType=INTEGER},
+            #{item.description,jdbcType=VARCHAR}, #{item.updateTime,jdbcType=TIMESTAMP})
+        </foreach>
+    </insert>
+    <insert id="insertOrUpdate" parameterType="com.ejlerp.cache.model.LeafAlloc">
+        <!--@mbg.generated-->
+        insert into leaf_alloc
+        (biz_tag, max_id, step, description, update_time)
+        values
+        (#{bizTag,jdbcType=VARCHAR}, #{maxId,jdbcType=BIGINT}, #{step,jdbcType=INTEGER},
+        #{description,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP})
+        on duplicate key update
+        biz_tag = #{bizTag,jdbcType=VARCHAR},
+        max_id = #{maxId,jdbcType=BIGINT},
+        step = #{step,jdbcType=INTEGER},
+        description = #{description,jdbcType=VARCHAR},
+        update_time = #{updateTime,jdbcType=TIMESTAMP}
+    </insert>
+    <insert id="insertOrUpdateSelective" parameterType="com.ejlerp.cache.model.LeafAlloc">
+        <!--@mbg.generated-->
+        insert into leaf_alloc
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="bizTag != null">
+                biz_tag,
+            </if>
+            <if test="maxId != null">
+                max_id,
+            </if>
+            <if test="step != null">
+                step,
+            </if>
+            <if test="description != null">
+                description,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+        </trim>
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="bizTag != null">
+                #{bizTag,jdbcType=VARCHAR},
+            </if>
+            <if test="maxId != null">
+                #{maxId,jdbcType=BIGINT},
+            </if>
+            <if test="step != null">
+                #{step,jdbcType=INTEGER},
+            </if>
+            <if test="description != null">
+                #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+        on duplicate key update
+        <trim suffixOverrides=",">
+            <if test="bizTag != null">
+                biz_tag = #{bizTag,jdbcType=VARCHAR},
+            </if>
+            <if test="maxId != null">
+                max_id = #{maxId,jdbcType=BIGINT},
+            </if>
+            <if test="step != null">
+                step = #{step,jdbcType=INTEGER},
+            </if>
+            <if test="description != null">
+                description = #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="getAllTags" resultType="string">
+        <!--@mbg.generated-->
+        SELECT biz_tag FROM leaf_alloc
+    </select>
+
+    <update id="updateMaxIdByCustomStep" parameterType="com.ejlerp.cache.model.LeafAlloc">
+
+        UPDATE leaf_alloc
+        SET max_id = max_id + #{step,jdbcType=BIGINT}
+        WHERE biz_tag = #{bizTag,jdbcType=VARCHAR}
+    </update>
+
+    <update id="updateMaxId" parameterType="java.lang.String">
+        UPDATE leaf_alloc
+        SET max_id = max_id + step
+        WHERE biz_tag = #{bizTag,jdbcType=VARCHAR}
+    </update>
+
+
+</mapper>
