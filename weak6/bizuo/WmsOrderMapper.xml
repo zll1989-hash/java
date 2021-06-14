@@ -1,0 +1,2864 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ejlerp.wms.order.provider.mapper.WmsOrderMapper">
+  <resultMap id="BaseResultMap" type="com.ejlerp.wms.order.WmsOrderDO">
+    <!--@mbg.generated-->
+    <!--@Table wms_order-->
+    <id column="wms_order_id" jdbcType="BIGINT" property="id" />
+    <result column="wms_order_no" jdbcType="VARCHAR" property="wmsOrderNo" />
+    <result column="owner_id" jdbcType="BIGINT" property="ownerId" />
+    <result column="sale_order_id" jdbcType="BIGINT" property="saleOrderId" />
+    <result column="sale_order_no" jdbcType="VARCHAR" property="saleOrderNo" />
+    <result column="platform_order_code" jdbcType="VARCHAR" property="platformOrderCode" />
+    <result column="platform_order_status" jdbcType="VARCHAR" property="platformOrderStatus" />
+    <result column="platform_type" jdbcType="SMALLINT" property="platformType" />
+    <result column="purchase_order_id" jdbcType="BIGINT" property="purchaseOrderId" />
+    <result column="purchase_state" jdbcType="SMALLINT" property="purchaseState" />
+    <result column="purchase_order_no" jdbcType="VARCHAR" property="purchaseOrderNo" />
+    <result column="order_type" jdbcType="SMALLINT" property="orderType" />
+    <result column="shop_id" jdbcType="BIGINT" property="shopId" />
+    <result column="seller_memo" jdbcType="LONGVARCHAR" property="sellerMemo" />
+    <result column="sale_order_memo" jdbcType="VARCHAR" property="saleOrderMemo" />
+    <result column="buyer_memo" jdbcType="VARCHAR" property="buyerMemo" />
+    <result column="buyer_email" jdbcType="VARCHAR" property="buyerEmail" />
+    <result column="buyer_nick" jdbcType="VARCHAR" property="buyerNick" />
+    <result column="pay_type" jdbcType="SMALLINT" property="payType" />
+    <result column="pay_time" jdbcType="TIMESTAMP" property="payTime" />
+    <result column="payment" jdbcType="DECIMAL" property="payment" />
+    <result column="total_fee" jdbcType="DECIMAL" property="totalFee" />
+    <result column="wms_order_type" jdbcType="SMALLINT" property="wmsOrderType" />
+    <result column="wms_order_state" jdbcType="SMALLINT" property="wmsOrderState" />
+    <result column="play_state" jdbcType="SMALLINT" property="playState" />
+    <result column="stop_state" jdbcType="SMALLINT" property="stopState" />
+    <result column="sale_order_origin_type" jdbcType="SMALLINT" property="saleOrderOriginType" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+    <result column="is_approve" jdbcType="TINYINT" property="approve" />
+    <result column="is_waybill" jdbcType="TINYINT" property="waybill" />
+    <result column="is_cancel" jdbcType="TINYINT" property="cancel" />
+    <result column="total_num" jdbcType="INTEGER" property="totalNum" />
+    <result column="total_sku" jdbcType="INTEGER" property="totalSku" />
+    <result column="waybill_type" jdbcType="SMALLINT" property="waybillType" />
+    <result column="is_wave" jdbcType="TINYINT" property="wave" />
+    <result column="waved_time" jdbcType="TIMESTAMP" property="wavedTime" />
+    <result column="wms_wave_id" jdbcType="BIGINT" property="wmsWaveId" />
+    <result column="wms_picking_order_no" jdbcType="VARCHAR" property="wmsPickingOrderNo" />
+    <result column="auto_wave_count" jdbcType="INTEGER" property="autoWaveCount" />
+    <result column="is_manual" jdbcType="TINYINT" property="manual" />
+    <result column="print_express_num" jdbcType="INTEGER" property="printExpressNum" />
+    <result column="print_sensitive_num" jdbcType="INTEGER" property="printSensitiveNum" />
+    <result column="print_deliver_num" jdbcType="INTEGER" property="printDeliverNum" />
+    <result column="picking_wall_id" jdbcType="BIGINT" property="pickingWallId" />
+    <result column="picking_wall_cells_no" jdbcType="VARCHAR" property="pickingWallCellsNo" />
+    <result column="cell_no" jdbcType="VARCHAR" property="cellNo" />
+    <result column="group_no" jdbcType="VARCHAR" property="groupNo" />
+    <result column="sorted_time" jdbcType="TIMESTAMP" property="sortedTime" />
+    <result column="weight_base_unit_id" jdbcType="BIGINT" property="weightBaseUnitId" />
+    <result column="weight" jdbcType="DECIMAL" property="weight" />
+    <result column="weight_time" jdbcType="TIMESTAMP" property="weightTime" />
+    <result column="real_weight" jdbcType="DECIMAL" property="realWeight" />
+    <result column="deliver_print_time" jdbcType="TIMESTAMP" property="deliverPrintTime" />
+    <result column="examine_goods_time" jdbcType="TIMESTAMP" property="examineGoodsTime" />
+    <result column="is_examine_goods" jdbcType="TINYINT" property="examineGoods" />
+    <result column="delivered_time" jdbcType="TIMESTAMP" property="deliveredTime" />
+    <result column="courier_id" jdbcType="BIGINT" property="courierId" />
+    <result column="courier_cost" jdbcType="DECIMAL" property="courierCost" />
+    <result column="courier_print_time" jdbcType="TIMESTAMP" property="courierPrintTime" />
+    <result column="courier_print_mark_state" jdbcType="INTEGER" property="courierPrintMarkState" />
+    <result column="courier_print_show_seq" jdbcType="VARCHAR" property="courierPrintShowSeq" />
+    <result column="waybill_code" jdbcType="VARCHAR" property="waybillCode" />
+    <result column="warehouse_id" jdbcType="BIGINT" property="warehouseId" />
+    <result column="packing_box_id" jdbcType="BIGINT" property="packingBoxId" />
+    <result column="invoice_type" jdbcType="SMALLINT" property="invoiceType" />
+    <result column="invoice_order_no" jdbcType="VARCHAR" property="invoiceOrderNo" />
+    <result column="invoice_content" jdbcType="VARCHAR" property="invoiceContent" />
+    <result column="bank" jdbcType="VARCHAR" property="bank" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="bank_account" jdbcType="VARCHAR" property="bankAccount" />
+    <result column="tian_mall_delivery" jdbcType="TINYINT" property="tianMallDelivery" />
+    <result column="three_pl_timing" jdbcType="TINYINT" property="threePlTiming" />
+    <result column="prescription_type" jdbcType="TINYINT" property="prescriptionType" />
+    <result column="sender_address" jdbcType="VARCHAR" property="senderAddress" />
+    <result column="sender_mobile" jdbcType="VARCHAR" property="senderMobile" />
+    <result column="sender_name" jdbcType="VARCHAR" property="senderName" />
+    <result column="obtain_time" jdbcType="TIMESTAMP" property="obtainTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="is_usable" jdbcType="TINYINT" property="usable" />
+    <result column="last_updater" jdbcType="BIGINT" property="lastUpdater" />
+    <result column="creator" jdbcType="BIGINT" property="creator" />
+    <result column="wms_picking_order_id" jdbcType="BIGINT" property="wmsPickingOrderId" />
+    <result column="shop_name" jdbcType="VARCHAR" property="shopName" />
+    <result column="cp_code" jdbcType="VARCHAR" property="cpCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    wms_order_id, wms_order_no, owner_id, sale_order_id, sale_order_no, platform_order_code, 
+    platform_order_status, platform_type, purchase_order_id, purchase_state, purchase_order_no, 
+    order_type, shop_id, seller_memo, sale_order_memo, buyer_memo, buyer_email, buyer_nick, 
+    pay_type, pay_time, payment, total_fee, wms_order_type, wms_order_state, play_state, 
+    stop_state, sale_order_origin_type, tenant_id, is_approve, is_waybill, is_cancel,
+    total_num, total_sku, waybill_type, is_wave, waved_time, wms_wave_id, wms_picking_order_no, 
+    auto_wave_count, is_manual, print_express_num, print_sensitive_num, print_deliver_num, 
+    picking_wall_id, picking_wall_cells_no, cell_no, group_no, sorted_time, weight_base_unit_id, 
+    weight, weight_time, real_weight, deliver_print_time, examine_goods_time, is_examine_goods, 
+    delivered_time, courier_id, courier_cost, courier_print_time, courier_print_mark_state, 
+    courier_print_show_seq, waybill_code, warehouse_id, packing_box_id, invoice_type, 
+    invoice_order_no, invoice_content, bank, title, bank_account, tian_mall_delivery, 
+    three_pl_timing, prescription_type, sender_address, sender_mobile, sender_name, obtain_time, 
+    create_time, last_update_time, is_usable, last_updater, creator, wms_picking_order_id,shop_name,cp_code
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from wms_order
+    where wms_order_id = #{primaryKey,jdbcType=BIGINT}
+    AND tenant_id = #{tenantId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    UPDATE wms_order SET is_usable = 0
+    where wms_order_id = #{wmsOrderId, jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ejlerp.wms.order.WmsOrderDO">
+    <!--@mbg.generated-->
+    insert into wms_order (wms_order_id, wms_order_no, owner_id,
+    sale_order_id, sale_order_no, platform_order_code,
+    platform_order_status, platform_type, purchase_order_id,
+    purchase_state, purchase_order_no, order_type,
+    shop_id, seller_memo, sale_order_memo,
+    buyer_memo, buyer_email, buyer_nick,
+    pay_type, pay_time, payment,
+    total_fee, wms_order_type, wms_order_state,
+    play_state, stop_state, sale_order_origin_type,
+    tenant_id, is_approve, is_waybill,
+    is_cancel, total_num, total_sku,
+    waybill_type, is_wave, waved_time,
+    wms_wave_id, wms_picking_order_no, auto_wave_count,
+    is_manual, print_express_num, print_sensitive_num,
+    print_deliver_num, picking_wall_id, picking_wall_cells_no,
+    cell_no, group_no, sorted_time,
+    weight_base_unit_id, weight, weight_time,
+    real_weight, deliver_print_time, examine_goods_time,
+    is_examine_goods, delivered_time, courier_id,
+    courier_cost, courier_print_time, courier_print_mark_state,
+    courier_print_show_seq, waybill_code, warehouse_id,
+    packing_box_id, invoice_type, invoice_order_no,
+    invoice_content, bank, title,
+    bank_account, tian_mall_delivery, three_pl_timing,
+    prescription_type, sender_address, sender_mobile,
+    sender_name, obtain_time, create_time,
+    last_update_time, is_usable, last_updater,
+    creator, wms_picking_order_id,shop_name, cp_code)
+    values (#{id,jdbcType=BIGINT}, #{wmsOrderNo,jdbcType=VARCHAR}, #{ownerId,jdbcType=BIGINT},
+    #{saleOrderId,jdbcType=BIGINT}, #{saleOrderNo,jdbcType=VARCHAR}, #{platformOrderCode,jdbcType=VARCHAR},
+    #{platformOrderStatus,jdbcType=VARCHAR}, #{platformType,jdbcType=SMALLINT}, #{purchaseOrderId,jdbcType=BIGINT},
+    #{purchaseState,jdbcType=SMALLINT}, #{purchaseOrderNo,jdbcType=VARCHAR}, #{orderType,jdbcType=SMALLINT},
+    #{shopId,jdbcType=BIGINT}, #{sellerMemo,jdbcType=LONGVARCHAR}, #{saleOrderMemo,jdbcType=VARCHAR},
+    #{buyerMemo,jdbcType=VARCHAR}, #{buyerEmail,jdbcType=VARCHAR}, #{buyerNick,jdbcType=VARCHAR},
+    #{payType,jdbcType=SMALLINT}, #{payTime,jdbcType=TIMESTAMP}, #{payment,jdbcType=DECIMAL},
+    #{totalFee,jdbcType=DECIMAL}, #{wmsOrderType,jdbcType=SMALLINT}, #{wmsOrderState,jdbcType=SMALLINT},
+    #{playState,jdbcType=SMALLINT}, #{stopState,jdbcType=SMALLINT}, #{saleOrderOriginType,jdbcType=SMALLINT},
+    #{tenantId,jdbcType=BIGINT}, #{approve,jdbcType=TINYINT}, #{waybill,jdbcType=TINYINT},
+    #{cancel,jdbcType=TINYINT}, #{totalNum,jdbcType=INTEGER}, #{totalSku,jdbcType=INTEGER},
+    #{waybillType,jdbcType=SMALLINT}, #{wave,jdbcType=TINYINT}, #{wavedTime,jdbcType=TIMESTAMP},
+    #{wmsWaveId,jdbcType=BIGINT}, #{wmsPickingOrderNo,jdbcType=VARCHAR}, #{autoWaveCount,jdbcType=INTEGER},
+    #{manual,jdbcType=TINYINT}, #{printExpressNum,jdbcType=INTEGER}, #{printSensitiveNum,jdbcType=INTEGER},
+    #{printDeliverNum,jdbcType=INTEGER}, #{pickingWallId,jdbcType=BIGINT}, #{pickingWallCellsNo,jdbcType=VARCHAR},
+    #{cellNo,jdbcType=VARCHAR}, #{groupNo,jdbcType=VARCHAR}, #{sortedTime,jdbcType=TIMESTAMP},
+    #{weightBaseUnitId,jdbcType=BIGINT}, #{weight,jdbcType=DECIMAL}, #{weightTime,jdbcType=TIMESTAMP},
+    #{realWeight,jdbcType=DECIMAL}, #{deliverPrintTime,jdbcType=TIMESTAMP}, #{examineGoodsTime,jdbcType=TIMESTAMP},
+    #{manual,jdbcType=TINYINT}, #{deliveredTime,jdbcType=TIMESTAMP}, #{courierId,jdbcType=BIGINT},
+    #{courierCost,jdbcType=DECIMAL}, #{courierPrintTime,jdbcType=TIMESTAMP}, #{courierPrintMarkState,jdbcType=INTEGER},
+    #{courierPrintShowSeq,jdbcType=VARCHAR}, #{waybillCode,jdbcType=VARCHAR}, #{warehouseId,jdbcType=BIGINT},
+    #{packingBoxId,jdbcType=BIGINT}, #{invoiceType,jdbcType=SMALLINT}, #{invoiceOrderNo,jdbcType=VARCHAR},
+    #{invoiceContent,jdbcType=VARCHAR}, #{bank,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR},
+    #{bankAccount,jdbcType=VARCHAR}, #{tianMallDelivery,jdbcType=TINYINT}, #{threePlTiming,jdbcType=TINYINT},
+    #{prescriptionType,jdbcType=TINYINT}, #{senderAddress,jdbcType=VARCHAR}, #{senderMobile,jdbcType=VARCHAR},
+    #{senderName,jdbcType=VARCHAR}, #{obtainTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP},
+    #{lastUpdateTime,jdbcType=TIMESTAMP}, #{usable,jdbcType=TINYINT}, #{lastUpdater,jdbcType=BIGINT},
+    #{creator,jdbcType=BIGINT}, #{wmsPickingOrderId,jdbcType=BIGINT}, #{shopName,jdbcType=VARCHAR}, #{cpCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ejlerp.wms.order.WmsOrderDO">
+    <!--@mbg.generated-->
+    insert into wms_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        wms_order_id,
+      </if>
+      <if test="wmsOrderNo != null">
+        wms_order_no,
+      </if>
+      <if test="ownerId != null">
+        owner_id,
+      </if>
+      <if test="saleOrderId != null">
+        sale_order_id,
+      </if>
+      <if test="saleOrderNo != null">
+        sale_order_no,
+      </if>
+      <if test="platformOrderCode != null">
+        platform_order_code,
+      </if>
+      <if test="platformOrderStatus != null">
+        platform_order_status,
+      </if>
+      <if test="platformType != null">
+        platform_type,
+      </if>
+      <if test="purchaseOrderId != null">
+        purchase_order_id,
+      </if>
+      <if test="purchaseState != null">
+        purchase_state,
+      </if>
+      <if test="purchaseOrderNo != null">
+        purchase_order_no,
+      </if>
+      <if test="orderType != null">
+        order_type,
+      </if>
+      <if test="shopId != null">
+        shop_id,
+      </if>
+      <if test="sellerMemo != null">
+        seller_memo,
+      </if>
+      <if test="saleOrderMemo != null">
+        sale_order_memo,
+      </if>
+      <if test="buyerMemo != null">
+        buyer_memo,
+      </if>
+      <if test="buyerEmail != null">
+        buyer_email,
+      </if>
+      <if test="buyerNick != null">
+        buyer_nick,
+      </if>
+      <if test="payType != null">
+        pay_type,
+      </if>
+      <if test="payTime != null">
+        pay_time,
+      </if>
+      <if test="payment != null">
+        payment,
+      </if>
+      <if test="totalFee != null">
+        total_fee,
+      </if>
+      <if test="wmsOrderType != null">
+        wms_order_type,
+      </if>
+      <if test="wmsOrderState != null">
+        wms_order_state,
+      </if>
+      <if test="playState != null">
+        play_state,
+      </if>
+      <if test="stopState != null">
+        stop_state,
+      </if>
+      <if test="saleOrderOriginType != null">
+        sale_order_origin_type,
+      </if>
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="approve != null">
+        is_approve,
+      </if>
+      <if test="waybill != null">
+        is_waybill,
+      </if>
+      <if test="cancel != null">
+        is_cancel,
+      </if>
+      <if test="totalNum != null">
+        total_num,
+      </if>
+      <if test="totalSku != null">
+        total_sku,
+      </if>
+      <if test="waybillType != null">
+        waybill_type,
+      </if>
+      <if test="wave != null">
+        is_wave,
+      </if>
+      <if test="wavedTime != null">
+        waved_time,
+      </if>
+      <if test="wmsWaveId != null">
+        wms_wave_id,
+      </if>
+      <if test="wmsPickingOrderNo != null">
+        wms_picking_order_no,
+      </if>
+      <if test="autoWaveCount != null">
+        auto_wave_count,
+      </if>
+      <if test="manual != null">
+        is_manual,
+      </if>
+      <if test="printExpressNum != null">
+        print_express_num,
+      </if>
+      <if test="printSensitiveNum != null">
+        print_sensitive_num,
+      </if>
+      <if test="printDeliverNum != null">
+        print_deliver_num,
+      </if>
+      <if test="pickingWallId != null">
+        picking_wall_id,
+      </if>
+      <if test="pickingWallCellsNo != null">
+        picking_wall_cells_no,
+      </if>
+      <if test="cellNo != null">
+        cell_no,
+      </if>
+      <if test="groupNo != null">
+        group_no,
+      </if>
+      <if test="sortedTime != null">
+        sorted_time,
+      </if>
+      <if test="weightBaseUnitId != null">
+        weight_base_unit_id,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="weightTime != null">
+        weight_time,
+      </if>
+      <if test="realWeight != null">
+        real_weight,
+      </if>
+      <if test="deliverPrintTime != null">
+        deliver_print_time,
+      </if>
+      <if test="examineGoodsTime != null">
+        examine_goods_time,
+      </if>
+      <if test="manual != null">
+        is_examine_goods,
+      </if>
+      <if test="deliveredTime != null">
+        delivered_time,
+      </if>
+      <if test="courierId != null">
+        courier_id,
+      </if>
+      <if test="courierCost != null">
+        courier_cost,
+      </if>
+      <if test="courierPrintTime != null">
+        courier_print_time,
+      </if>
+      <if test="courierPrintMarkState != null">
+        courier_print_mark_state,
+      </if>
+      <if test="courierPrintShowSeq != null">
+        courier_print_show_seq,
+      </if>
+      <if test="waybillCode != null">
+        waybill_code,
+      </if>
+      <if test="warehouseId != null">
+        warehouse_id,
+      </if>
+      <if test="packingBoxId != null">
+        packing_box_id,
+      </if>
+      <if test="invoiceType != null">
+        invoice_type,
+      </if>
+      <if test="invoiceOrderNo != null">
+        invoice_order_no,
+      </if>
+      <if test="invoiceContent != null">
+        invoice_content,
+      </if>
+      <if test="bank != null">
+        bank,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="bankAccount != null">
+        bank_account,
+      </if>
+      <if test="tianMallDelivery != null">
+        tian_mall_delivery,
+      </if>
+      <if test="threePlTiming != null">
+        three_pl_timing,
+      </if>
+      <if test="prescriptionType != null">
+        prescription_type,
+      </if>
+      <if test="senderAddress != null">
+        sender_address,
+      </if>
+      <if test="senderMobile != null">
+        sender_mobile,
+      </if>
+      <if test="senderName != null">
+        sender_name,
+      </if>
+      <if test="obtainTime != null">
+        obtain_time,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="lastUpdateTime != null">
+        last_update_time,
+      </if>
+      <if test="usable != null">
+        is_usable,
+      </if>
+      <if test="lastUpdater != null">
+        last_updater,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="wmsPickingOrderId != null">
+        wms_picking_order_id,
+      </if>
+      <if test="shopName != null">
+        shop_name,
+      </if>
+      <if test="cpCode != null">
+        cp_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="wmsOrderNo != null">
+        #{wmsOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerId != null">
+        #{ownerId,jdbcType=BIGINT},
+      </if>
+      <if test="saleOrderId != null">
+        #{saleOrderId,jdbcType=BIGINT},
+      </if>
+      <if test="saleOrderNo != null">
+        #{saleOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="platformOrderCode != null">
+        #{platformOrderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="platformOrderStatus != null">
+        #{platformOrderStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="platformType != null">
+        #{platformType,jdbcType=SMALLINT},
+      </if>
+      <if test="purchaseOrderId != null">
+        #{purchaseOrderId,jdbcType=BIGINT},
+      </if>
+      <if test="purchaseState != null">
+        #{purchaseState,jdbcType=SMALLINT},
+      </if>
+      <if test="purchaseOrderNo != null">
+        #{purchaseOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderType != null">
+        #{orderType,jdbcType=SMALLINT},
+      </if>
+      <if test="shopId != null">
+        #{shopId,jdbcType=BIGINT},
+      </if>
+      <if test="sellerMemo != null">
+        #{sellerMemo,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="saleOrderMemo != null">
+        #{saleOrderMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerMemo != null">
+        #{buyerMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerEmail != null">
+        #{buyerEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerNick != null">
+        #{buyerNick,jdbcType=VARCHAR},
+      </if>
+      <if test="payType != null">
+        #{payType,jdbcType=SMALLINT},
+      </if>
+      <if test="payTime != null">
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payment != null">
+        #{payment,jdbcType=DECIMAL},
+      </if>
+      <if test="totalFee != null">
+        #{totalFee,jdbcType=DECIMAL},
+      </if>
+      <if test="wmsOrderType != null">
+        #{wmsOrderType,jdbcType=SMALLINT},
+      </if>
+      <if test="wmsOrderState != null">
+        #{wmsOrderState,jdbcType=SMALLINT},
+      </if>
+      <if test="playState != null">
+        #{playState,jdbcType=SMALLINT},
+      </if>
+      <if test="stopState != null">
+        #{stopState,jdbcType=SMALLINT},
+      </if>
+      <if test="saleOrderOriginType != null">
+        #{saleOrderOriginType,jdbcType=SMALLINT},
+      </if>
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="approve != null">
+        #{approve,jdbcType=TINYINT},
+      </if>
+      <if test="waybill != null">
+        #{waybill,jdbcType=TINYINT},
+      </if>
+      <if test="cancel != null">
+        #{cancel,jdbcType=TINYINT},
+      </if>
+      <if test="totalNum != null">
+        #{totalNum,jdbcType=INTEGER},
+      </if>
+      <if test="totalSku != null">
+        #{totalSku,jdbcType=INTEGER},
+      </if>
+      <if test="waybillType != null">
+        #{waybillType,jdbcType=SMALLINT},
+      </if>
+      <if test="wave != null">
+        #{wave,jdbcType=TINYINT},
+      </if>
+      <if test="wavedTime != null">
+        #{wavedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wmsWaveId != null">
+        #{wmsWaveId,jdbcType=BIGINT},
+      </if>
+      <if test="wmsPickingOrderNo != null">
+        #{wmsPickingOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="autoWaveCount != null">
+        #{autoWaveCount,jdbcType=INTEGER},
+      </if>
+      <if test="manual != null">
+        #{manual,jdbcType=TINYINT},
+      </if>
+      <if test="printExpressNum != null">
+        #{printExpressNum,jdbcType=INTEGER},
+      </if>
+      <if test="printSensitiveNum != null">
+        #{printSensitiveNum,jdbcType=INTEGER},
+      </if>
+      <if test="printDeliverNum != null">
+        #{printDeliverNum,jdbcType=INTEGER},
+      </if>
+      <if test="pickingWallId != null">
+        #{pickingWallId,jdbcType=BIGINT},
+      </if>
+      <if test="pickingWallCellsNo != null">
+        #{pickingWallCellsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cellNo != null">
+        #{cellNo,jdbcType=VARCHAR},
+      </if>
+      <if test="groupNo != null">
+        #{groupNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sortedTime != null">
+        #{sortedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="weightBaseUnitId != null">
+        #{weightBaseUnitId,jdbcType=BIGINT},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="weightTime != null">
+        #{weightTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realWeight != null">
+        #{realWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="deliverPrintTime != null">
+        #{deliverPrintTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="examineGoodsTime != null">
+        #{examineGoodsTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="manual != null">
+        #{manual,jdbcType=TINYINT},
+      </if>
+      <if test="deliveredTime != null">
+        #{deliveredTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="courierId != null">
+        #{courierId,jdbcType=BIGINT},
+      </if>
+      <if test="courierCost != null">
+        #{courierCost,jdbcType=DECIMAL},
+      </if>
+      <if test="courierPrintTime != null">
+        #{courierPrintTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="courierPrintMarkState != null">
+        #{courierPrintMarkState,jdbcType=INTEGER},
+      </if>
+      <if test="courierPrintShowSeq != null">
+        #{courierPrintShowSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="waybillCode != null">
+        #{waybillCode,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouseId != null">
+        #{warehouseId,jdbcType=BIGINT},
+      </if>
+      <if test="packingBoxId != null">
+        #{packingBoxId,jdbcType=BIGINT},
+      </if>
+      <if test="invoiceType != null">
+        #{invoiceType,jdbcType=SMALLINT},
+      </if>
+      <if test="invoiceOrderNo != null">
+        #{invoiceOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceContent != null">
+        #{invoiceContent,jdbcType=VARCHAR},
+      </if>
+      <if test="bank != null">
+        #{bank,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccount != null">
+        #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="tianMallDelivery != null">
+        #{tianMallDelivery,jdbcType=TINYINT},
+      </if>
+      <if test="threePlTiming != null">
+        #{threePlTiming,jdbcType=TINYINT},
+      </if>
+      <if test="prescriptionType != null">
+        #{prescriptionType,jdbcType=TINYINT},
+      </if>
+      <if test="senderAddress != null">
+        #{senderAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="senderMobile != null">
+        #{senderMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="senderName != null">
+        #{senderName,jdbcType=VARCHAR},
+      </if>
+      <if test="obtainTime != null">
+        #{obtainTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usable != null">
+        #{usable,jdbcType=TINYINT},
+      </if>
+      <if test="lastUpdater != null">
+        #{lastUpdater,jdbcType=BIGINT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=BIGINT},
+      </if>
+      <if test="wmsPickingOrderId != null">
+        #{wmsPickingOrderId,jdbcType=BIGINT},
+      </if>
+      <if test="shopName != null">
+        #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="cpCode != null">
+        #{cpCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ejlerp.wms.order.WmsOrderDO">
+    <!--@mbg.generated-->
+    update wms_order
+    <set>
+      <if test="wmsOrderNo != null">
+        wms_order_no = #{wmsOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerId != null">
+        owner_id = #{ownerId,jdbcType=BIGINT},
+      </if>
+      <if test="saleOrderId != null">
+        sale_order_id = #{saleOrderId,jdbcType=BIGINT},
+      </if>
+      <if test="saleOrderNo != null">
+        sale_order_no = #{saleOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="platformOrderCode != null">
+        platform_order_code = #{platformOrderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="platformOrderStatus != null">
+        platform_order_status = #{platformOrderStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="platformType != null">
+        platform_type = #{platformType,jdbcType=SMALLINT},
+      </if>
+      <if test="purchaseOrderId != null">
+        purchase_order_id = #{purchaseOrderId,jdbcType=BIGINT},
+      </if>
+      <if test="purchaseState != null">
+        purchase_state = #{purchaseState,jdbcType=SMALLINT},
+      </if>
+      <if test="purchaseOrderNo != null">
+        purchase_order_no = #{purchaseOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderType != null">
+        order_type = #{orderType,jdbcType=SMALLINT},
+      </if>
+      <if test="shopId != null">
+        shop_id = #{shopId,jdbcType=BIGINT},
+      </if>
+      <if test="sellerMemo != null">
+        seller_memo = #{sellerMemo,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="saleOrderMemo != null">
+        sale_order_memo = #{saleOrderMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerMemo != null">
+        buyer_memo = #{buyerMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerEmail != null">
+        buyer_email = #{buyerEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerNick != null">
+        buyer_nick = #{buyerNick,jdbcType=VARCHAR},
+      </if>
+      <if test="payType != null">
+        pay_type = #{payType,jdbcType=SMALLINT},
+      </if>
+      <if test="payTime != null">
+        pay_time = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payment != null">
+        payment = #{payment,jdbcType=DECIMAL},
+      </if>
+      <if test="totalFee != null">
+        total_fee = #{totalFee,jdbcType=DECIMAL},
+      </if>
+      <if test="wmsOrderType != null">
+        wms_order_type = #{wmsOrderType,jdbcType=SMALLINT},
+      </if>
+      <if test="wmsOrderState != null">
+        wms_order_state = #{wmsOrderState,jdbcType=SMALLINT},
+      </if>
+      <if test="playState != null">
+        play_state = #{playState,jdbcType=SMALLINT},
+      </if>
+      <if test="stopState != null">
+        stop_state = #{stopState,jdbcType=SMALLINT},
+      </if>
+      <if test="saleOrderOriginType != null">
+        sale_order_origin_type = #{saleOrderOriginType,jdbcType=SMALLINT},
+      </if>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="approve != null">
+        is_approve = #{approve,jdbcType=TINYINT},
+      </if>
+      <if test="waybill != null">
+        is_waybill = #{waybill,jdbcType=TINYINT},
+      </if>
+      <if test="cancel != null">
+        is_cancel = #{cancel,jdbcType=TINYINT},
+      </if>
+      <if test="totalNum != null">
+        total_num = #{totalNum,jdbcType=INTEGER},
+      </if>
+      <if test="totalSku != null">
+        total_sku = #{totalSku,jdbcType=INTEGER},
+      </if>
+      <if test="waybillType != null">
+        waybill_type = #{waybillType,jdbcType=SMALLINT},
+      </if>
+      <if test="wave != null">
+        is_wave = #{wave,jdbcType=TINYINT},
+      </if>
+      <if test="wavedTime != null">
+        waved_time = #{wavedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wmsWaveId != null">
+        wms_wave_id = #{wmsWaveId,jdbcType=BIGINT},
+      </if>
+      <if test="wmsPickingOrderNo != null">
+        wms_picking_order_no = #{wmsPickingOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="autoWaveCount != null">
+        auto_wave_count = #{autoWaveCount,jdbcType=INTEGER},
+      </if>
+      <if test="manual != null">
+        is_manual = #{manual,jdbcType=TINYINT},
+      </if>
+      <if test="printExpressNum != null">
+        print_express_num = #{printExpressNum,jdbcType=INTEGER},
+      </if>
+      <if test="printSensitiveNum != null">
+        print_sensitive_num = #{printSensitiveNum,jdbcType=INTEGER},
+      </if>
+      <if test="printDeliverNum != null">
+        print_deliver_num = #{printDeliverNum,jdbcType=INTEGER},
+      </if>
+      <if test="pickingWallId != null">
+        picking_wall_id = #{pickingWallId,jdbcType=BIGINT},
+      </if>
+      <if test="pickingWallCellsNo != null">
+        picking_wall_cells_no = #{pickingWallCellsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cellNo != null">
+        cell_no = #{cellNo,jdbcType=VARCHAR},
+      </if>
+      <if test="groupNo != null">
+        group_no = #{groupNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sortedTime != null">
+        sorted_time = #{sortedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="weightBaseUnitId != null">
+        weight_base_unit_id = #{weightBaseUnitId,jdbcType=BIGINT},
+      </if>
+      <if test="weight != null">
+        weight = #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="weightTime != null">
+        weight_time = #{weightTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realWeight != null">
+        real_weight = #{realWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="deliverPrintTime != null">
+        deliver_print_time = #{deliverPrintTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="examineGoodsTime != null">
+        examine_goods_time = #{examineGoodsTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="examineGoods != null">
+        is_examine_goods = #{examineGoods,jdbcType=TINYINT},
+      </if>
+      <if test="deliveredTime != null">
+        delivered_time = #{deliveredTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="courierId != null">
+        courier_id = #{courierId,jdbcType=BIGINT},
+      </if>
+      <if test="courierCost != null">
+        courier_cost = #{courierCost,jdbcType=DECIMAL},
+      </if>
+      <if test="courierPrintTime != null">
+        courier_print_time = #{courierPrintTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="courierPrintMarkState != null">
+        courier_print_mark_state = #{courierPrintMarkState,jdbcType=INTEGER},
+      </if>
+      <if test="courierPrintShowSeq != null">
+        courier_print_show_seq = #{courierPrintShowSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="waybillCode != null">
+        waybill_code = #{waybillCode,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouseId != null">
+        warehouse_id = #{warehouseId,jdbcType=BIGINT},
+      </if>
+      <if test="packingBoxId != null">
+        packing_box_id = #{packingBoxId,jdbcType=BIGINT},
+      </if>
+      <if test="invoiceType != null">
+        invoice_type = #{invoiceType,jdbcType=SMALLINT},
+      </if>
+      <if test="invoiceOrderNo != null">
+        invoice_order_no = #{invoiceOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceContent != null">
+        invoice_content = #{invoiceContent,jdbcType=VARCHAR},
+      </if>
+      <if test="bank != null">
+        bank = #{bank,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccount != null">
+        bank_account = #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="tianMallDelivery != null">
+        tian_mall_delivery = #{tianMallDelivery,jdbcType=TINYINT},
+      </if>
+      <if test="threePlTiming != null">
+        three_pl_timing = #{threePlTiming,jdbcType=TINYINT},
+      </if>
+      <if test="prescriptionType != null">
+        prescription_type = #{prescriptionType,jdbcType=TINYINT},
+      </if>
+      <if test="senderAddress != null">
+        sender_address = #{senderAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="senderMobile != null">
+        sender_mobile = #{senderMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="senderName != null">
+        sender_name = #{senderName,jdbcType=VARCHAR},
+      </if>
+      <if test="obtainTime != null">
+        obtain_time = #{obtainTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateTime != null">
+        last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usable != null">
+        is_usable = #{usable,jdbcType=TINYINT},
+      </if>
+      <if test="lastUpdater != null">
+        last_updater = #{lastUpdater,jdbcType=BIGINT},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=BIGINT},
+      </if>
+      <if test="wmsPickingOrderId != null">
+        wms_picking_order_id = #{wmsPickingOrderId,jdbcType=BIGINT},
+      </if>
+      <if test="shopName != null">
+        shop_name = #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="cpCode != null">
+        cp_code = #{cpCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where wms_order_id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ejlerp.wms.order.WmsOrderDO">
+    <!--@mbg.generated-->
+    update wms_order
+    set wms_order_no = #{wmsOrderNo,jdbcType=VARCHAR},
+    owner_id = #{ownerId,jdbcType=BIGINT},
+    sale_order_id = #{saleOrderId,jdbcType=BIGINT},
+    sale_order_no = #{saleOrderNo,jdbcType=VARCHAR},
+    platform_order_code = #{platformOrderCode,jdbcType=VARCHAR},
+    platform_order_status = #{platformOrderStatus,jdbcType=VARCHAR},
+    platform_type = #{platformType,jdbcType=SMALLINT},
+    purchase_order_id = #{purchaseOrderId,jdbcType=BIGINT},
+    purchase_state = #{purchaseState,jdbcType=SMALLINT},
+    purchase_order_no = #{purchaseOrderNo,jdbcType=VARCHAR},
+    order_type = #{orderType,jdbcType=SMALLINT},
+    shop_id = #{shopId,jdbcType=BIGINT},
+    seller_memo = #{sellerMemo,jdbcType=LONGVARCHAR},
+    sale_order_memo = #{saleOrderMemo,jdbcType=VARCHAR},
+    buyer_memo = #{buyerMemo,jdbcType=VARCHAR},
+    buyer_email = #{buyerEmail,jdbcType=VARCHAR},
+    buyer_nick = #{buyerNick,jdbcType=VARCHAR},
+    pay_type = #{payType,jdbcType=SMALLINT},
+    pay_time = #{payTime,jdbcType=TIMESTAMP},
+    payment = #{payment,jdbcType=DECIMAL},
+    total_fee = #{totalFee,jdbcType=DECIMAL},
+    wms_order_type = #{wmsOrderType,jdbcType=SMALLINT},
+    wms_order_state = #{wmsOrderState,jdbcType=SMALLINT},
+    play_state = #{playState,jdbcType=SMALLINT},
+    stop_state = #{stopState,jdbcType=SMALLINT},
+    sale_order_origin_type = #{saleOrderOriginType,jdbcType=SMALLINT},
+    tenant_id = #{tenantId,jdbcType=BIGINT},
+    is_approve = #{approve,jdbcType=TINYINT},
+    is_waybill = #{waybill,jdbcType=TINYINT},
+    is_cancel = #{cancel,jdbcType=TINYINT},
+    total_num = #{totalNum,jdbcType=INTEGER},
+    total_sku = #{totalSku,jdbcType=INTEGER},
+    waybill_type = #{waybillType,jdbcType=SMALLINT},
+    is_wave = #{wave,jdbcType=TINYINT},
+    waved_time = #{wavedTime,jdbcType=TIMESTAMP},
+    wms_wave_id = #{wmsWaveId,jdbcType=BIGINT},
+    wms_picking_order_no = #{wmsPickingOrderNo,jdbcType=VARCHAR},
+    auto_wave_count = #{autoWaveCount,jdbcType=INTEGER},
+    is_manual = #{manual,jdbcType=TINYINT},
+    print_express_num = #{printExpressNum,jdbcType=INTEGER},
+    print_sensitive_num = #{printSensitiveNum,jdbcType=INTEGER},
+    print_deliver_num = #{printDeliverNum,jdbcType=INTEGER},
+    picking_wall_id = #{pickingWallId,jdbcType=BIGINT},
+    picking_wall_cells_no = #{pickingWallCellsNo,jdbcType=VARCHAR},
+    cell_no = #{cellNo,jdbcType=VARCHAR},
+    group_no = #{groupNo,jdbcType=VARCHAR},
+    sorted_time = #{sortedTime,jdbcType=TIMESTAMP},
+    weight_base_unit_id = #{weightBaseUnitId,jdbcType=BIGINT},
+    weight = #{weight,jdbcType=DECIMAL},
+    weight_time = #{weightTime,jdbcType=TIMESTAMP},
+    real_weight = #{realWeight,jdbcType=DECIMAL},
+    deliver_print_time = #{deliverPrintTime,jdbcType=TIMESTAMP},
+    examine_goods_time = #{examineGoodsTime,jdbcType=TIMESTAMP},
+    is_examine_goods = #{examineGoods,jdbcType=TINYINT},
+    delivered_time = #{deliveredTime,jdbcType=TIMESTAMP},
+    courier_id = #{courierId,jdbcType=BIGINT},
+    courier_cost = #{courierCost,jdbcType=DECIMAL},
+    courier_print_time = #{courierPrintTime,jdbcType=TIMESTAMP},
+    courier_print_mark_state = #{courierPrintMarkState,jdbcType=INTEGER},
+    courier_print_show_seq = #{courierPrintShowSeq,jdbcType=VARCHAR},
+    waybill_code = #{waybillCode,jdbcType=VARCHAR},
+    warehouse_id = #{warehouseId,jdbcType=BIGINT},
+    packing_box_id = #{packingBoxId,jdbcType=BIGINT},
+    invoice_type = #{invoiceType,jdbcType=SMALLINT},
+    invoice_order_no = #{invoiceOrderNo,jdbcType=VARCHAR},
+    invoice_content = #{invoiceContent,jdbcType=VARCHAR},
+    bank = #{bank,jdbcType=VARCHAR},
+    title = #{title,jdbcType=VARCHAR},
+    bank_account = #{bankAccount,jdbcType=VARCHAR},
+    tian_mall_delivery = #{tianMallDelivery,jdbcType=TINYINT},
+    three_pl_timing = #{threePlTiming,jdbcType=TINYINT},
+    prescription_type = #{prescriptionType,jdbcType=TINYINT},
+    sender_address = #{senderAddress,jdbcType=VARCHAR},
+    sender_mobile = #{senderMobile,jdbcType=VARCHAR},
+    sender_name = #{senderName,jdbcType=VARCHAR},
+    obtain_time = #{obtainTime,jdbcType=TIMESTAMP},
+    create_time = #{createTime,jdbcType=TIMESTAMP},
+    last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+    is_usable = #{usable,jdbcType=TINYINT},
+    last_updater = #{lastUpdater,jdbcType=BIGINT},
+    creator = #{creator,jdbcType=BIGINT},
+    wms_picking_order_id = #{wmsPickingOrderId,jdbcType=BIGINT},
+    cp_code = #{cpCode,jdbcType=VARCHAR}
+    where wms_order_id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update wms_order
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="wms_order_no = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.wmsOrderNo,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="owner_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.ownerId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="sale_order_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.saleOrderId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="sale_order_no = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.saleOrderNo,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="platform_order_code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.platformOrderCode,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="platform_order_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.platformOrderStatus,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="platform_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.platformType,jdbcType=SMALLINT}
+        </foreach>
+      </trim>
+      <trim prefix="purchase_order_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.purchaseOrderId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="purchase_state = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.purchaseState,jdbcType=SMALLINT}
+        </foreach>
+      </trim>
+      <trim prefix="purchase_order_no = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.purchaseOrderNo,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="order_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.orderType,jdbcType=SMALLINT}
+        </foreach>
+      </trim>
+      <trim prefix="shop_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.shopId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="seller_memo = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.sellerMemo,jdbcType=LONGVARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="sale_order_memo = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.saleOrderMemo,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="buyer_memo = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.buyerMemo,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="buyer_email = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.buyerEmail,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="buyer_nick = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.buyerNick,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="pay_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.payType,jdbcType=SMALLINT}
+        </foreach>
+      </trim>
+      <trim prefix="pay_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.payTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="payment = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.payment,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="total_fee = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.totalFee,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="wms_order_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.wmsOrderType,jdbcType=SMALLINT}
+        </foreach>
+      </trim>
+      <trim prefix="wms_order_state = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.wmsOrderState,jdbcType=SMALLINT}
+        </foreach>
+      </trim>
+      <trim prefix="play_state = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.playState,jdbcType=SMALLINT}
+        </foreach>
+      </trim>
+      <trim prefix="stop_state = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.stopState,jdbcType=SMALLINT}
+        </foreach>
+      </trim>
+      <trim prefix="sale_order_origin_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.saleOrderOriginType,jdbcType=SMALLINT}
+        </foreach>
+      </trim>
+      <trim prefix="tenant_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.tenantId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="is_approve = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.approve,jdbcType=TINYINT}
+        </foreach>
+      </trim>
+      <trim prefix="is_waybill = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.waybill,jdbcType=TINYINT}
+        </foreach>
+      </trim>
+      <trim prefix="is_cancel = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.cancel,jdbcType=TINYINT}
+        </foreach>
+      </trim>
+      <trim prefix="total_num = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.totalNum,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="total_sku = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.totalSku,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="waybill_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.waybillType,jdbcType=SMALLINT}
+        </foreach>
+      </trim>
+      <trim prefix="is_wave = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.wave,jdbcType=TINYINT}
+        </foreach>
+      </trim>
+      <trim prefix="waved_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.wavedTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="wms_wave_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.wmsWaveId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="wms_picking_order_no = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.wmsPickingOrderNo,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="auto_wave_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.autoWaveCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="is_manual = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.manual,jdbcType=TINYINT}
+        </foreach>
+      </trim>
+      <trim prefix="print_express_num = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.printExpressNum,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="print_sensitive_num = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.printSensitiveNum,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="print_deliver_num = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.printDeliverNum,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="picking_wall_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.pickingWallId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="picking_wall_cells_no = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.pickingWallCellsNo,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="cell_no = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.cellNo,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="group_no = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.groupNo,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="sorted_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.sortedTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="weight_base_unit_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.weightBaseUnitId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="weight = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.weight,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="weight_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.weightTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="real_weight = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.realWeight,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="deliver_print_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.deliverPrintTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="examine_goods_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.examineGoodsTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="is_examine_goods = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.manual,jdbcType=TINYINT}
+        </foreach>
+      </trim>
+      <trim prefix="delivered_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.deliveredTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="courier_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.courierId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="courier_cost = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.courierCost,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="courier_print_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.courierPrintTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="courier_print_mark_state = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.courierPrintMarkState,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="courier_print_show_seq = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.courierPrintShowSeq,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="waybill_code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.waybillCode,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="warehouse_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.warehouseId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="packing_box_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.packingBoxId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="invoice_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.invoiceType,jdbcType=SMALLINT}
+        </foreach>
+      </trim>
+      <trim prefix="invoice_order_no = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.invoiceOrderNo,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="invoice_content = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.invoiceContent,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="bank = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.bank,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="title = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.title,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="bank_account = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.bankAccount,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="tian_mall_delivery = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.tianMallDelivery,jdbcType=TINYINT}
+        </foreach>
+      </trim>
+      <trim prefix="three_pl_timing = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.threePlTiming,jdbcType=TINYINT}
+        </foreach>
+      </trim>
+      <trim prefix="prescription_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.prescriptionType,jdbcType=TINYINT}
+        </foreach>
+      </trim>
+      <trim prefix="sender_address = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.senderAddress,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="sender_mobile = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.senderMobile,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="sender_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.senderName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="obtain_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.obtainTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.createTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="last_update_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.lastUpdateTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="is_usable = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.usable,jdbcType=TINYINT}
+        </foreach>
+      </trim>
+      <trim prefix="last_updater = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.lastUpdater,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="creator = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.creator,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="wms_picking_order_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.wmsPickingOrderId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="cp_code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.cpCode,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where wms_order_id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update wms_order
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="wms_order_no = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.wmsOrderNo != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.wmsOrderNo,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="owner_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.ownerId != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.ownerId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="sale_order_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.saleOrderId != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.saleOrderId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="sale_order_no = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.saleOrderNo != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.saleOrderNo,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="platform_order_code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.platformOrderCode != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.platformOrderCode,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="platform_order_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.platformOrderStatus != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.platformOrderStatus,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="platform_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.platformType != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.platformType,jdbcType=SMALLINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="purchase_order_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.purchaseOrderId != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.purchaseOrderId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="purchase_state = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.purchaseState != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.purchaseState,jdbcType=SMALLINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="purchase_order_no = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.purchaseOrderNo != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.purchaseOrderNo,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="order_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.orderType != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.orderType,jdbcType=SMALLINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="shop_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.shopId != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.shopId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="seller_memo = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.sellerMemo != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.sellerMemo,jdbcType=LONGVARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="sale_order_memo = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.saleOrderMemo != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.saleOrderMemo,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="buyer_memo = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.buyerMemo != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.buyerMemo,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="buyer_email = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.buyerEmail != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.buyerEmail,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="buyer_nick = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.buyerNick != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.buyerNick,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="pay_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.payType != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.payType,jdbcType=SMALLINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="pay_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.payTime != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.payTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="payment = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.payment != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.payment,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="total_fee = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.totalFee != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.totalFee,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="wms_order_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.wmsOrderType != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.wmsOrderType,jdbcType=SMALLINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="wms_order_state = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.wmsOrderState != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.wmsOrderState,jdbcType=SMALLINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="play_state = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.playState != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.playState,jdbcType=SMALLINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="stop_state = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.stopState != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.stopState,jdbcType=SMALLINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="sale_order_origin_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.saleOrderOriginType != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.saleOrderOriginType,jdbcType=SMALLINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="tenant_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.tenantId != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.tenantId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="is_approve = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.approve != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.approve,jdbcType=TINYINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="is_waybill = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.waybill != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.waybill,jdbcType=TINYINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="is_cancel = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.cancel != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.cancel,jdbcType=TINYINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="total_num = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.totalNum != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.totalNum,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="total_sku = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.totalSku != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.totalSku,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="waybill_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.waybillType != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.waybillType,jdbcType=SMALLINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="is_wave = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.wave != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.wave,jdbcType=TINYINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="waved_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.wavedTime != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.wavedTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="wms_wave_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.wmsWaveId != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.wmsWaveId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="wms_picking_order_no = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.wmsPickingOrderNo != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.wmsPickingOrderNo,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="auto_wave_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.autoWaveCount != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.autoWaveCount,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="is_manual = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.manual != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.manual,jdbcType=TINYINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="print_express_num = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.printExpressNum != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.printExpressNum,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="print_sensitive_num = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.printSensitiveNum != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.printSensitiveNum,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="print_deliver_num = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.printDeliverNum != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.printDeliverNum,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="picking_wall_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.pickingWallId != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.pickingWallId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="picking_wall_cells_no = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.pickingWallCellsNo != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.pickingWallCellsNo,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="cell_no = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.cellNo != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.cellNo,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="group_no = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.groupNo != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.groupNo,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="sorted_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.sortedTime != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.sortedTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="weight_base_unit_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.weightBaseUnitId != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.weightBaseUnitId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="weight = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.weight != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.weight,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="weight_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.weightTime != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.weightTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="real_weight = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.realWeight != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.realWeight,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="deliver_print_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.deliverPrintTime != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.deliverPrintTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="examine_goods_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.examineGoodsTime != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.examineGoodsTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="is_examine_goods = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.manual != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.manual,jdbcType=TINYINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="delivered_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.deliveredTime != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.deliveredTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="courier_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.courierId != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.courierId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="courier_cost = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.courierCost != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.courierCost,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="courier_print_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.courierPrintTime != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.courierPrintTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="courier_print_mark_state = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.courierPrintMarkState != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.courierPrintMarkState,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="courier_print_show_seq = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.courierPrintShowSeq != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.courierPrintShowSeq,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="waybill_code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.waybillCode != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.waybillCode,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="warehouse_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.warehouseId != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.warehouseId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="packing_box_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.packingBoxId != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.packingBoxId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="invoice_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.invoiceType != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.invoiceType,jdbcType=SMALLINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="invoice_order_no = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.invoiceOrderNo != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.invoiceOrderNo,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="invoice_content = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.invoiceContent != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.invoiceContent,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="bank = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.bank != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.bank,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="title = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.title != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.title,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="bank_account = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.bankAccount != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.bankAccount,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="tian_mall_delivery = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.tianMallDelivery != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.tianMallDelivery,jdbcType=TINYINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="three_pl_timing = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.threePlTiming != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.threePlTiming,jdbcType=TINYINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="prescription_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.prescriptionType != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.prescriptionType,jdbcType=TINYINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="sender_address = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.senderAddress != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.senderAddress,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="sender_mobile = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.senderMobile != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.senderMobile,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="sender_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.senderName != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.senderName,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="obtain_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.obtainTime != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.obtainTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.createTime != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.createTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="last_update_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.lastUpdateTime != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.lastUpdateTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="is_usable = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.usable != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.usable,jdbcType=TINYINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="last_updater = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.lastUpdater != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.lastUpdater,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="creator = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.creator != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.creator,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="wms_picking_order_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.wmsPickingOrderId != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.wmsPickingOrderId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="cp_code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.cpCode != null">
+            when wms_order_id = #{item.id,jdbcType=BIGINT} then #{item.cpCode,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where wms_order_id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="insertList" parameterType="map">
+    <!--@mbg.generated-->
+    insert into wms_order
+    (wms_order_id, wms_order_no, owner_id, sale_order_id, sale_order_no, platform_order_code, 
+      platform_order_status, platform_type, purchase_order_id, purchase_state, purchase_order_no, 
+      order_type, shop_id, seller_memo, sale_order_memo, buyer_memo, buyer_email, buyer_nick, 
+      pay_type, pay_time, payment, total_fee, wms_order_type, wms_order_state, play_state, 
+      stop_state, sale_order_origin_type, tenant_id, is_approve, is_waybill, is_cancel,
+      total_num, total_sku, waybill_type, is_wave, waved_time, wms_wave_id, wms_picking_order_no, 
+      auto_wave_count, is_manual, print_express_num, print_sensitive_num, print_deliver_num, 
+      picking_wall_id, picking_wall_cells_no, cell_no, group_no, sorted_time, weight_base_unit_id, 
+      weight, weight_time, real_weight, deliver_print_time, examine_goods_time, is_examine_goods, 
+      delivered_time, courier_id, courier_cost, courier_print_time, courier_print_mark_state, 
+      courier_print_show_seq, waybill_code, warehouse_id, packing_box_id, invoice_type, 
+      invoice_order_no, invoice_content, bank, title, bank_account, tian_mall_delivery, 
+      three_pl_timing, prescription_type, sender_address, sender_mobile, sender_name, 
+      obtain_time, create_time, last_update_time, is_usable, last_updater, creator, wms_picking_order_id,cp_code
+      )
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.id,jdbcType=BIGINT}, #{item.wmsOrderNo,jdbcType=VARCHAR}, #{item.ownerId,jdbcType=BIGINT},
+      #{item.saleOrderId,jdbcType=BIGINT}, #{item.saleOrderNo,jdbcType=VARCHAR},
+      #{item.platformOrderCode,jdbcType=VARCHAR},
+      #{item.platformOrderStatus,jdbcType=VARCHAR}, #{item.platformType,jdbcType=SMALLINT},
+      #{item.purchaseOrderId,jdbcType=BIGINT}, #{item.purchaseState,jdbcType=SMALLINT},
+      #{item.purchaseOrderNo,jdbcType=VARCHAR}, #{item.orderType,jdbcType=SMALLINT},
+      #{item.shopId,jdbcType=BIGINT}, #{item.sellerMemo,jdbcType=LONGVARCHAR}, #{item.saleOrderMemo,jdbcType=VARCHAR},
+      #{item.buyerMemo,jdbcType=VARCHAR}, #{item.buyerEmail,jdbcType=VARCHAR}, #{item.buyerNick,jdbcType=VARCHAR},
+      #{item.payType,jdbcType=SMALLINT}, #{item.payTime,jdbcType=TIMESTAMP}, #{item.payment,jdbcType=DECIMAL},
+      #{item.totalFee,jdbcType=DECIMAL}, #{item.wmsOrderType,jdbcType=SMALLINT},
+      #{item.wmsOrderState,jdbcType=SMALLINT},
+      #{item.playState,jdbcType=SMALLINT}, #{item.stopState,jdbcType=SMALLINT},
+      #{item.saleOrderOriginType,jdbcType=SMALLINT},
+      #{item.tenantId,jdbcType=BIGINT}, #{item.approve,jdbcType=TINYINT}, #{item.waybill,jdbcType=TINYINT},
+      #{item.cancel,jdbcType=TINYINT}, #{item.totalNum,jdbcType=INTEGER}, #{item.totalSku,jdbcType=INTEGER},
+      #{item.waybillType,jdbcType=SMALLINT}, #{item.wave,jdbcType=TINYINT}, #{item.wavedTime,jdbcType=TIMESTAMP},
+      #{item.wmsWaveId,jdbcType=BIGINT}, #{item.wmsPickingOrderNo,jdbcType=VARCHAR},
+      #{item.autoWaveCount,jdbcType=INTEGER}, #{item.manual,jdbcType=TINYINT},
+      #{item.printExpressNum,jdbcType=INTEGER},
+      #{item.printSensitiveNum,jdbcType=INTEGER}, #{item.printDeliverNum,jdbcType=INTEGER},
+      #{item.pickingWallId,jdbcType=BIGINT}, #{item.pickingWallCellsNo,jdbcType=VARCHAR},
+      #{item.cellNo,jdbcType=VARCHAR}, #{item.groupNo,jdbcType=VARCHAR}, #{item.sortedTime,jdbcType=TIMESTAMP},
+      #{item.weightBaseUnitId,jdbcType=BIGINT}, #{item.weight,jdbcType=DECIMAL}, #{item.weightTime,jdbcType=TIMESTAMP},
+      #{item.realWeight,jdbcType=DECIMAL}, #{item.deliverPrintTime,jdbcType=TIMESTAMP},
+      #{item.examineGoodsTime,jdbcType=TIMESTAMP}, #{item.manual,jdbcType=TINYINT},
+      #{item.deliveredTime,jdbcType=TIMESTAMP}, #{item.courierId,jdbcType=BIGINT}, #{item.courierCost,jdbcType=DECIMAL},
+      #{item.courierPrintTime,jdbcType=TIMESTAMP}, #{item.courierPrintMarkState,jdbcType=INTEGER},
+      #{item.courierPrintShowSeq,jdbcType=VARCHAR}, #{item.waybillCode,jdbcType=VARCHAR},
+      #{item.warehouseId,jdbcType=BIGINT}, #{item.packingBoxId,jdbcType=BIGINT}, #{item.invoiceType,jdbcType=SMALLINT},
+      #{item.invoiceOrderNo,jdbcType=VARCHAR}, #{item.invoiceContent,jdbcType=VARCHAR},
+      #{item.bank,jdbcType=VARCHAR}, #{item.title,jdbcType=VARCHAR}, #{item.bankAccount,jdbcType=VARCHAR},
+      #{item.tianMallDelivery,jdbcType=TINYINT}, #{item.threePlTiming,jdbcType=TINYINT},
+      #{item.prescriptionType,jdbcType=TINYINT}, #{item.senderAddress,jdbcType=VARCHAR},
+      #{item.senderMobile,jdbcType=VARCHAR}, #{item.senderName,jdbcType=VARCHAR}, #{item.obtainTime,jdbcType=TIMESTAMP},
+      #{item.createTime,jdbcType=TIMESTAMP}, #{item.lastUpdateTime,jdbcType=TIMESTAMP},
+      #{item.usable,jdbcType=TINYINT}, #{item.lastUpdater,jdbcType=BIGINT}, #{item.creator,jdbcType=BIGINT},
+      #{item.wmsPickingOrderId,jdbcType=BIGINT},#{item.cpCode, jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+
+  <update id="updateWmsOrderStateByPrimaryKey" parameterType="com.ejlerp.wms.order.WmsOrderDO">
+    UPDATE wms_order
+        SET wms_order_state = #{wmsOrderState,jdbcType=SMALLINT},
+            last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+            last_updater = #{lastUpdater,jdbcType=BIGINT}
+    WHERE wms_order_id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <update id="updateCancelStateByPrimaryKey" parameterType="com.ejlerp.wms.order.WmsOrderDO">
+    UPDATE wms_order
+        SET is_cancel = #{cancel,jdbcType=BOOLEAN},
+            last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP}
+    WHERE wms_order_id = #{id, jdbcType=BIGINT}
+  </update>
+
+  <select id="countByPage" parameterType="com.ejlerp.wms.order.WmsOrderQueryDTO" resultType="java.lang.Long">
+    SELECT
+        COUNT(1)
+    FROM
+        wms_order wo
+    <include refid="listByPageCondition"/>
+  </select>
+
+  <select id="listByPage" parameterType="com.ejlerp.wms.order.WmsOrderQueryDTO" resultMap="BaseResultMap">
+    SELECT
+            a.wms_order_id, a.wms_order_no, a.owner_id, a.sale_order_id, a.sale_order_no, a.platform_order_code,
+            a.platform_order_status, a.platform_type, a.purchase_order_id, a.purchase_state, a.purchase_order_no,
+            a.order_type, a.shop_id, a.seller_memo, a.sale_order_memo, a.buyer_memo, a.buyer_email, a.buyer_nick,
+            a.pay_type, a.pay_time, a.payment, a.total_fee, a.wms_order_type, a.wms_order_state, a.play_state,
+            a.stop_state, a.sale_order_origin_type, a.tenant_id, a.is_approve, a.is_waybill, a.is_cancel,
+            a.total_num, a.total_sku, a.waybill_type, a.is_wave, a.waved_time, a.wms_wave_id, a.wms_picking_order_no,
+            a.auto_wave_count, a.is_manual, a.print_express_num, a.print_sensitive_num, a.print_deliver_num,
+            a.picking_wall_id, a.picking_wall_cells_no, a.cell_no, a.group_no, a.sorted_time, a.weight_base_unit_id,
+            a.weight, a.weight_time, a.real_weight, a.deliver_print_time, a.examine_goods_time, a.is_examine_goods,
+            a.delivered_time, a.courier_id, a.courier_cost, a.courier_print_time, a.courier_print_mark_state,
+            a.courier_print_show_seq, a.waybill_code, a.warehouse_id, a.packing_box_id, a.invoice_type,
+            a.invoice_order_no, a.invoice_content, a.bank, a.title, a.bank_account, a.tian_mall_delivery,
+            a.three_pl_timing, a.prescription_type, a.sender_address, a.sender_mobile, a.sender_name, a.obtain_time,
+            a.create_time, a.last_update_time, a.is_usable, a.last_updater, a.creator, a.wms_picking_order_id,a.shop_name
+    FROM wms_order as a,
+    (SELECT wo.wms_order_id FROM wms_order as wo
+    <include refid="listByPageCondition"/>
+    ORDER BY wo.create_time DESC
+    LIMIT #{page},#{pageSize}
+    ) as b
+    WHERE a.wms_order_id = b.wms_order_id;
+  </select>
+
+  <select id="listByWaveStrategy" resultMap="BaseResultMap" parameterType="com.ejlerp.wms.order.WmsOrderByStrategyQueryDTO">
+    SELECT
+      a.wms_order_id, a.wms_order_no, a.owner_id, a.sale_order_id, a.sale_order_no, a.platform_order_code,
+      a.platform_order_status, a.platform_type, a.purchase_order_id, a.purchase_state, a.purchase_order_no,
+      a.order_type, a.shop_id, a.seller_memo, a.sale_order_memo, a.buyer_memo, a.buyer_email, a.buyer_nick,
+      a.pay_type, a.pay_time, a.payment, a.total_fee, a.wms_order_type, a.wms_order_state, a.play_state,
+      a.stop_state, a.sale_order_origin_type, a.tenant_id, a.is_approve, a.is_waybill, a.is_cancel,
+      a.total_num, a.total_sku, a.waybill_type, a.is_wave, a.waved_time, a.wms_wave_id, a.wms_picking_order_no,
+      a.auto_wave_count, a.is_manual, a.print_express_num, a.print_sensitive_num, a.print_deliver_num,
+      a.picking_wall_id, a.picking_wall_cells_no, a.cell_no, a.group_no, a.sorted_time, a.weight_base_unit_id,
+      a.weight, a.weight_time, a.real_weight, a.deliver_print_time, a.examine_goods_time, a.is_examine_goods,
+      a.delivered_time, a.courier_id, a.courier_cost, a.courier_print_time, a.courier_print_mark_state,
+      a.courier_print_show_seq, a.waybill_code, a.warehouse_id, a.packing_box_id, a.invoice_type,
+      a.invoice_order_no, a.invoice_content, a.bank, a.title, a.bank_account, a.tian_mall_delivery,
+      a.three_pl_timing, a.prescription_type, a.sender_address, a.sender_mobile, a.sender_name, a.obtain_time,
+      a.create_time, a.last_update_time, a.is_usable, a.last_updater, a.creator, a.wms_picking_order_id,a.shop_name
+    FROM wms_order as a,
+    (
+      SELECT wo.wms_order_id FROM wms_order as wo
+        <include refid="listByStrategy"/>
+    ORDER BY wo.wms_order_id LIMIT #{limitCount,jdbcType=INTEGER}
+    ) as b
+    WHERE a.wms_order_id = b.wms_order_id;
+  </select>
+
+  <select id="listPrimaryKeyByWaveStrategy" resultType="java.lang.Long">
+    SELECT wo.wms_order_id FROM wms_order as wo
+    <include refid="listByStrategy"/>
+    order by wo.pay_time
+  </select>
+
+  <sql id="listByStrategy">
+    <trim prefix="where" prefixOverrides="and">
+
+        <if test="warehouseIds != null and warehouseIds.size() != 0">
+          AND wo.warehouse_id IN
+          <foreach index="index" close=")" open="(" item="item" collection="warehouseIds" separator=",">
+            #{item, jdbcType=BIGINT}
+          </foreach>
+        </if>
+        <if test="sellerMemos != null ">
+          and
+          <foreach index="index" close=")" open="(" item="item" collection="sellerMemos" separator="OR">
+            wo.seller_memo like concat(#{item}, '%')
+          </foreach>
+        </if>
+        <if test="saleOrderMemos != null ">
+          and
+          <foreach index="index" close=")" open="(" item="item" collection="saleOrderMemos" separator="OR">
+            wo.sale_order_memo like concat(#{item}, '%')
+          </foreach>
+        </if>
+        <if test="ownerId != null ">
+          and wo.owner_id =#{ownerId,jdbcType=BIGINT}
+        </if>
+        <if test="courierIds != null and courierIds.size() != 0">
+          and wo.courier_id IN
+          <foreach index="index" close=")" open="(" item="item" collection="courierIds" separator=",">
+            #{item, jdbcType=BIGINT}
+          </foreach>
+        </if>
+        <if test="shopNames != null and shopNames.size() != 0">
+          and wo.shop_id IN
+          <foreach index="index" close=")" open="(" item="item" collection="shopNames" separator=",">
+            #{item, jdbcType=BIGINT}
+          </foreach>
+        </if>
+        <if test="wmsOrderType != null">
+          and wo.wms_order_type = #{wmsOrderType,jdbcType=INTEGER}
+        </if>
+        <if test="orderType != null">
+          and wo.order_type = #{orderType,jdbcType=INTEGER}
+        </if>
+        <if test="tenantId != null">
+          and wo.tenant_id = #{tenantId,jdbcType=BIGINT}
+        </if>
+        <if test="wmsOrderState != null">
+          and wo.wms_order_state = #{wmsOrderState,jdbcType=INTEGER}
+        </if>
+        <if test="cancel != null">
+          and wo.is_cancel = #{cancel,jdbcType=BOOLEAN}
+        </if>
+        <if test="wave != null">
+          and wo.is_wave = #{wave,jdbcType=BOOLEAN}
+        </if>
+        <if test="stopState != null">
+          and wo.stop_state = #{stopState,jdbcType=INTEGER}
+        </if>
+        <if test="usable != null">
+          and wo.is_usable = #{usable,jdbcType=BOOLEAN}
+        </if>
+        <if test="skuInList != null and skuInList.size() != 0">
+          AND wo.wms_order_id IN
+          (SELECT wod.wms_order_id FROM wms_order_detail wod
+          WHERE wod.sku_id IN
+          <foreach index="index" close=")" open="(" item="item" collection="skuInList" separator=",">
+            #{item, jdbcType=BIGINT}
+          </foreach>)
+        </if>
+        <if test="skuNotInList != null and skuNotInList.size() != 0">
+          AND wo.wms_order_id NOT IN
+          (SELECT wod.wms_order_id FROM wms_order_detail wod
+          WHERE wod.sku_id IN
+          <foreach index="index" close=")" open="(" item="item" collection="skuNotInList" separator=",">
+            #{item, jdbcType=BIGINT}
+          </foreach>)
+        </if>
+        and wo.waybill_code !=''
+    </trim>
+  </sql>
+
+  <sql id="listByPageCondition">
+    <trim prefix="where" prefixOverrides="and">
+      <if test="wmsOrderNo != null">
+        and wo.wms_order_no like concat(#{wmsOrderNo, jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="tenantId != null">
+        and wo.tenant_id = #{tenantId, jdbcType=VARCHAR}
+      </if>
+      <if test="wmsPickingOrderNo != null and wmsPickingOrderNo != ''">
+        and wo.wms_picking_order_no like concat(#{wmsPickingOrderNo, jdbcType=VARCHAR}, '%')
+      </if>
+
+      <if test="platformOrderCode != null and platformOrderCode != ''">
+        and wo.platform_order_code like concat (#{platformOrderCode,jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="startPayTime != null">
+        and wo.pay_time &gt;= #{startPayTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="endPayTime != null">
+        and wo.pay_time &lt;= #{endPayTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="startObtainTime != null">
+        and wo.obtain_time &gt;= #{startObtainTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="endObtainTime != null">
+        and wo.obtain_time &lt;= #{endObtainTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="startCourierPrintTime != null">
+        and wo.courier_print_time &gt;= #{startCourierPrintTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="endCourierPrintTime != null">
+        and wo.courier_print_time &lt;= #{endCourierPrintTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="startSortedTime != null">
+        and wo.sorted_time &gt;= #{startSortedTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="endSortedTime != null">
+        and wo.sorted_time &lt;= #{endSortedTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="startExamineGoodsTime != null">
+        and wo.examine_goods_time &gt;= #{startExamineGoodsTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="endExamineGoodsTime != null">
+        and wo.examine_goods_time &lt;= #{endExamineGoodsTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="startWeightTime != null">
+        and wo.weight_time &gt;= #{startWeightTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="endWeightTime != null">
+        and wo.weight_time &lt;= #{endWeightTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="startCreateTime != null">
+        and wo.create_time &gt;= #{startCreateTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="endCreateTime != null">
+        and wo.create_time &lt;= #{endCreateTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="startWaveTime != null">
+        and wo.waved_time &gt;= #{startWaveTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="endWaveTime != null">
+        and wo.waved_time &lt;= #{endWaveTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="startDeliverPrintTime != null">
+        and wo.deliver_print_time &gt;= #{startDeliverPrintTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="endDeliverPrintTime != null">
+        and wo.deliver_print_time &lt;= #{endDeliverPrintTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="warehouseIdList != null and warehouseIdList.size() != 0">
+        and wo.warehouse_id IN
+        <foreach index="index" close=")" open="(" item="item" collection="warehouseIdList" separator=",">
+          #{item, jdbcType=BIGINT}
+        </foreach>
+      </if>
+      <if test="ownerIdList != null and ownerIdList.size() != 0">
+        and wo.owner_id IN
+        <foreach index="index" close=")" open="(" item="item" collection="ownerIdList" separator=",">
+          #{item, jdbcType=BIGINT}
+        </foreach>
+      </if>
+      <if test="shopNameList != null and shopNameList.size() != 0">
+        and wo.shop_id IN
+        <foreach index="index" close=")" open="(" item="item" collection="shopNameList" separator=",">
+          #{item, jdbcType=BIGINT}
+        </foreach>
+      </if>
+      <if test="courierList != null and courierList.size() != 0">
+        and wo.courier_id IN
+        <foreach index="index" close=")" open="(" item="item" collection="courierList" separator=",">
+          #{item, jdbcType=BIGINT}
+        </foreach>
+      </if>
+      <if test="wmsOrderTypeList != null and wmsOrderTypeList.size() != 0">
+        and wo.wms_order_type IN
+        <foreach index="index" close=")" open="(" item="item" collection="wmsOrderTypeList" separator=",">
+          #{item, jdbcType=BIGINT}
+        </foreach>
+      </if>
+      <if test="wmsOrderStateList != null and wmsOrderStateList.size() != 0">
+        and wo.wms_order_state IN
+        <foreach index="index" close=")" open="(" item="item" collection="wmsOrderStateList" separator=",">
+          #{item, jdbcType=BIGINT}
+        </foreach>
+      </if>
+      <if test="orderTypeList != null and orderTypeList.size() != 0">
+        and wo.order_type IN
+        <foreach index="index" close=")" open="(" item="item" collection="orderTypeList" separator=",">
+          #{item, jdbcType=BIGINT}
+        </foreach>
+      </if>
+      <if test="buyerNick != null and buyerNick != ''">
+        and wo.buyer_nick like concat(#{buyerNick, jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="sellerMemoNull != null and sellerMemoNull != ''">
+        and wo.seller_memo IS NULL
+      </if>
+      <if test="sellerMemoNotNull != null and sellerMemoNotNull != ''">
+        and wo.seller_memo IS NOT NULL and wo.seller_memo != ''
+      </if>
+      <if test="sellerMemoLike != null and sellerMemoLike != ''">
+        and wo.seller_memo like concat(#{sellerMemoLike, jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="minTotalNum != null and minTotalNum !=0">
+        and wo.total_num &gt;= #{minTotalNum, jdbcType=INTEGER}
+      </if>
+      <if test="maxTotalNum != null and maxTotalNum !=0">
+        and wo.total_num &lt;= #{maxTotalNum, jdbcType=INTEGER}
+      </if>
+      <if test="minTotalSku != null and minTotalSku !=0">
+        and wo.total_sku &gt;= #{minTotalSku, jdbcType=INTEGER}
+      </if>
+      <if test="maxTotalSku != null and maxTotalSku !=0">
+        and wo.total_sku &lt;= #{maxTotalSku, jdbcType=INTEGER}
+      </if>
+      <if test="courierPrintMarkState != null">
+        and wo.courier_print_mark_state = #{courierPrintMarkState, jdbcType=INTEGER}
+      </if>
+      <if test="courierNoNull != null and courierNoNull != ''">
+        and (wo.waybill_code IS NULL OR wo.waybill_code = '')
+      </if>
+      <if test="courierNoNotNull != null and courierNoNotNull != ''">
+        and wo.waybill_code IS NOT NULL and wo.waybill_code != ''
+      </if>
+      <if test="courierNoLike != null and courierNoLike != ''">
+        and wo.waybill_code like concat(#{courierNoLike, jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="examineGoods != null">
+        and wo.is_examine_goods = #{examineGoods, jdbcType=TINYINT}
+      </if>
+      <if test="saleOrderMemoNull != null and saleOrderMemoNull != ''">
+        and (wo.sale_order_memo IS NULL OR  wo.sale_order_memo ='')
+      </if>
+      <if test="saleOrderMemoNotNull != null and saleOrderMemoNotNull != ''">
+        and (wo.sale_order_memo IS NOT NULL and wo.sale_order_memo != '')
+      </if>
+      <if test="saleOrderMemoLike != null and saleOrderMemoLike != ''">
+        and wo.sale_order_memo like concat(#{saleOrderMemoLike, jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="wave != null ">
+        and wo.is_wave =#{wave,jdbcType=BOOLEAN}
+      </if>
+      <if test="usable != null ">
+         and wo.is_usable =#{usable,jdbcType=BOOLEAN}
+      </if>
+      <if test="skuNo != null and skuNo != ''">
+        and wo.wms_order_id IN
+          (
+          SELECT
+          wod.wms_order_id
+          FROM wms_order_detail wod
+          WHERE wo.wms_order_id = wod.wms_order_id
+                and (wod.bar_code = #{skuNo,jdbcType=VARCHAR}
+                OR wod.sku_no like concat(#{skuNo,jdbcType=VARCHAR}, '%')
+                OR wod.product_no like concat(#{skuNo,jdbcType=VARCHAR}, '%')
+        ))
+      </if>
+      <if test="saleOrderOriginTypeList != null and saleOrderOriginTypeList.size() != 0">
+        and wo.sale_order_origin_type IN
+        <foreach index="index" close=")" open="(" item="item" collection="saleOrderOriginTypeList" separator=",">
+          #{item, jdbcType=INTEGER}
+        </foreach>
+      </if>
+      <if test="prescriptionTypeList != null and prescriptionTypeList.size() != 0">
+        and wo.prescription_type IN
+        <foreach index="index" close=")" open="(" item="item" collection="prescriptionTypeList" separator=",">
+          #{item, jdbcType=INTEGER}
+        </foreach>
+      </if>
+      <if test="weightNull != null and weightNull != ''">
+        and wo.weight IS NULL
+      </if>
+      <if test="weightNotNull != null and weightNotNull != ''">
+        and wo.weight IS NOT NULL
+      </if>
+      <if test="weightLike != null and weightLike != ''">
+        and wo.weight like concat(#{weightLike, jdbcType=DECIMAL}, '%')
+      </if>
+      <if test="cancel != null">
+        and wo.is_cancel = #{cancel, jdbcType= BOOLEAN}
+      </if>
+      <if test="stopState != null">
+        and wo.stop_state = #{stopState, jdbcType=SMALLINT}
+      </if>
+      <if test="uniqueCode != null and uniqueCode != ''">
+          and wo.wms_order_id IN
+          (
+          SELECT
+          wod.wms_order_id
+          FROM wms_order_detail wod
+          WHERE wo.wms_order_id = wod.wms_order_id
+                and wod.unique_code = #{uniqueCode, jdbcType=VARCHAR})
+      </if>
+
+      <if test="receiverName != null and receiverName != ''">
+        AND wo.wms_order_id IN
+          (SELECT
+          wo.wms_order_id
+          FROM wms_order_receiver wor
+          WHERE wo.wms_order_id = wor.wms_order_id
+        and wor.receiver_name like concat(#{receiverName, jdbcType=VARCHAR}, '%'))
+      </if>
+      <if test="receiverMobile != null and receiverMobile != ''">
+          AND wo.wms_order_id IN
+          (SELECT
+          wo.wms_order_id
+          FROM wms_order_receiver wor
+          WHERE wo.wms_order_id = wor.wms_order_id
+        and wor.receiver_mobile like concat(#{receiverMobile, jdbcType=VARCHAR}, '%'))
+      </if>
+    </trim>
+
+  </sql>
+
+<!--auto generated by MybatisCodeHelper on 2021-03-15-->
+  <select id="listByAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from wms_order
+    <where>
+      <if test="id != null">
+        and wms_order_id=#{id,jdbcType=BIGINT}
+      </if>
+      <if test="wmsOrderNo != null">
+        and wms_order_no=#{wmsOrderNo,jdbcType=VARCHAR}
+      </if>
+      <if test="ownerId != null">
+        and owner_id=#{ownerId,jdbcType=BIGINT}
+      </if>
+      <if test="saleOrderId != null">
+        and sale_order_id=#{saleOrderId,jdbcType=BIGINT}
+      </if>
+      <if test="saleOrderNo != null">
+        and sale_order_no=#{saleOrderNo,jdbcType=VARCHAR}
+      </if>
+      <if test="platformOrderCode != null">
+        and platform_order_code=#{platformOrderCode,jdbcType=VARCHAR}
+      </if>
+      <if test="platformOrderStatus != null">
+        and platform_order_status=#{platformOrderStatus,jdbcType=VARCHAR}
+      </if>
+      <if test="platformType != null">
+        and platform_type=#{platformType,jdbcType=SMALLINT}
+      </if>
+      <if test="purchaseOrderId != null">
+        and purchase_order_id=#{purchaseOrderId,jdbcType=BIGINT}
+      </if>
+      <if test="purchaseState != null">
+        and purchase_state=#{purchaseState,jdbcType=SMALLINT}
+      </if>
+      <if test="purchaseOrderNo != null">
+        and purchase_order_no=#{purchaseOrderNo,jdbcType=VARCHAR}
+      </if>
+      <if test="orderType != null">
+        and order_type=#{orderType,jdbcType=SMALLINT}
+      </if>
+      <if test="shopId != null">
+        and shop_id=#{shopId,jdbcType=BIGINT}
+      </if>
+      <if test="sellerMemo != null">
+        and seller_memo=#{sellerMemo,jdbcType=LONGVARCHAR}
+      </if>
+      <if test="saleOrderMemo != null">
+        and sale_order_memo=#{saleOrderMemo,jdbcType=VARCHAR}
+      </if>
+      <if test="buyerMemo != null">
+        and buyer_memo=#{buyerMemo,jdbcType=VARCHAR}
+      </if>
+      <if test="buyerEmail != null">
+        and buyer_email=#{buyerEmail,jdbcType=VARCHAR}
+      </if>
+      <if test="buyerNick != null">
+        and buyer_nick=#{buyerNick,jdbcType=VARCHAR}
+      </if>
+      <if test="payType != null">
+        and pay_type=#{payType,jdbcType=SMALLINT}
+      </if>
+      <if test="payTime != null">
+        and pay_time=#{payTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="payment != null">
+        and payment=#{payment,jdbcType=DECIMAL}
+      </if>
+      <if test="totalFee != null">
+        and total_fee=#{totalFee,jdbcType=DECIMAL}
+      </if>
+      <if test="wmsOrderType != null">
+        and wms_order_type=#{wmsOrderType,jdbcType=SMALLINT}
+      </if>
+      <if test="wmsOrderState != null">
+        and wms_order_state=#{wmsOrderState,jdbcType=SMALLINT}
+      </if>
+      <if test="playState != null">
+        and play_state=#{playState,jdbcType=SMALLINT}
+      </if>
+      <if test="stopState != null">
+        and stop_state=#{stopState,jdbcType=SMALLINT}
+      </if>
+      <if test="saleOrderOriginType != null">
+        and sale_order_origin_type=#{saleOrderOriginType,jdbcType=SMALLINT}
+      </if>
+      <if test="tenantId != null">
+        and tenant_id=#{tenantId,jdbcType=BIGINT}
+      </if>
+      <if test="approve != null">
+        and is_approve=#{approve,jdbcType=TINYINT}
+      </if>
+      <if test="waybill != null">
+        and is_waybill=#{waybill,jdbcType=TINYINT}
+      </if>
+      <if test="cancel != null">
+        and is_cancel=#{cancel,jdbcType=TINYINT}
+      </if>
+      <if test="totalNum != null">
+        and total_num=#{totalNum,jdbcType=INTEGER}
+      </if>
+      <if test="totalSku != null">
+        and total_sku=#{totalSku,jdbcType=INTEGER}
+      </if>
+      <if test="waybillType != null">
+        and waybill_type=#{waybillType,jdbcType=SMALLINT}
+      </if>
+      <if test="wave != null">
+        and is_wave=#{wave,jdbcType=TINYINT}
+      </if>
+      <if test="wavedTime != null">
+        and waved_time=#{wavedTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="wmsWaveId != null">
+        and wms_wave_id=#{wmsWaveId,jdbcType=BIGINT}
+      </if>
+      <if test="wmsPickingOrderNo != null">
+        and wms_picking_order_no=#{wmsPickingOrderNo,jdbcType=VARCHAR}
+      </if>
+      <if test="autoWaveCount != null">
+        and auto_wave_count=#{autoWaveCount,jdbcType=INTEGER}
+      </if>
+      <if test="manual != null">
+        and is_manual=#{manual,jdbcType=TINYINT}
+      </if>
+      <if test="printExpressNum != null">
+        and print_express_num=#{printExpressNum,jdbcType=INTEGER}
+      </if>
+      <if test="printSensitiveNum != null">
+        and print_sensitive_num=#{printSensitiveNum,jdbcType=INTEGER}
+      </if>
+      <if test="printDeliverNum != null">
+        and print_deliver_num=#{printDeliverNum,jdbcType=INTEGER}
+      </if>
+      <if test="pickingWallId != null">
+        and picking_wall_id=#{pickingWallId,jdbcType=BIGINT}
+      </if>
+      <if test="pickingWallCellsNo != null">
+        and picking_wall_cells_no=#{pickingWallCellsNo,jdbcType=VARCHAR}
+      </if>
+      <if test="cellNo != null">
+        and cell_no=#{cellNo,jdbcType=VARCHAR}
+      </if>
+      <if test="groupNo != null">
+        and group_no=#{groupNo,jdbcType=VARCHAR}
+      </if>
+      <if test="sortedTime != null">
+        and sorted_time=#{sortedTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="weightBaseUnitId != null">
+        and weight_base_unit_id=#{weightBaseUnitId,jdbcType=BIGINT}
+      </if>
+      <if test="weight != null">
+        and weight=#{weight,jdbcType=DECIMAL}
+      </if>
+      <if test="weightTime != null">
+        and weight_time=#{weightTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="realWeight != null">
+        and real_weight=#{realWeight,jdbcType=DECIMAL}
+      </if>
+      <if test="deliverPrintTime != null">
+        and deliver_print_time=#{deliverPrintTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="examineGoodsTime != null">
+        and examine_goods_time=#{examineGoodsTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="examineGoods != null">
+        and is_examine_goods=#{examineGoods,jdbcType=TINYINT}
+      </if>
+      <if test="deliveredTime != null">
+        and delivered_time=#{deliveredTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="courierId != null">
+        and courier_id=#{courierId,jdbcType=BIGINT}
+      </if>
+      <if test="courierCost != null">
+        and courier_cost=#{courierCost,jdbcType=DECIMAL}
+      </if>
+      <if test="courierPrintTime != null">
+        and courier_print_time=#{courierPrintTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="courierPrintMarkState != null">
+        and courier_print_mark_state=#{courierPrintMarkState,jdbcType=INTEGER}
+      </if>
+      <if test="courierPrintShowSeq != null">
+        and courier_print_show_seq=#{courierPrintShowSeq,jdbcType=VARCHAR}
+      </if>
+      <if test="waybillCode != null">
+        and waybill_code=#{waybillCode,jdbcType=VARCHAR}
+      </if>
+      <if test="warehouseId != null">
+        and warehouse_id=#{warehouseId,jdbcType=BIGINT}
+      </if>
+      <if test="packingBoxId != null">
+        and packing_box_id=#{packingBoxId,jdbcType=BIGINT}
+      </if>
+      <if test="invoiceType != null">
+        and invoice_type=#{invoiceType,jdbcType=SMALLINT}
+      </if>
+      <if test="invoiceOrderNo != null">
+        and invoice_order_no=#{invoiceOrderNo,jdbcType=VARCHAR}
+      </if>
+      <if test="invoiceContent != null">
+        and invoice_content=#{invoiceContent,jdbcType=VARCHAR}
+      </if>
+      <if test="bank != null">
+        and bank=#{bank,jdbcType=VARCHAR}
+      </if>
+      <if test="title != null">
+        and title=#{title,jdbcType=VARCHAR}
+      </if>
+      <if test="bankAccount != null">
+        and bank_account=#{bankAccount,jdbcType=VARCHAR}
+      </if>
+      <if test="tianMallDelivery != null">
+        and tian_mall_delivery=#{tianMallDelivery,jdbcType=TINYINT}
+      </if>
+      <if test="threePlTiming != null">
+        and three_pl_timing=#{threePlTiming,jdbcType=TINYINT}
+      </if>
+      <if test="prescriptionType != null">
+        and prescription_type=#{prescriptionType,jdbcType=TINYINT}
+      </if>
+      <if test="senderAddress != null">
+        and sender_address=#{senderAddress,jdbcType=VARCHAR}
+      </if>
+      <if test="senderMobile != null">
+        and sender_mobile=#{senderMobile,jdbcType=VARCHAR}
+      </if>
+      <if test="senderName != null">
+        and sender_name=#{senderName,jdbcType=VARCHAR}
+      </if>
+      <if test="obtainTime != null">
+        and obtain_time=#{obtainTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="createTime != null">
+        and create_time=#{createTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="lastUpdateTime != null">
+        and last_update_time=#{lastUpdateTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="usable != null">
+        and is_usable=#{usable,jdbcType=TINYINT}
+      </if>
+      <if test="lastUpdater != null">
+        and last_updater=#{lastUpdater,jdbcType=BIGINT}
+      </if>
+      <if test="creator != null">
+        and creator=#{creator,jdbcType=BIGINT}
+      </if>
+      <if test="wmsPickingOrderId != null">
+        and wms_picking_order_id=#{wmsPickingOrderId,jdbcType=BIGINT}
+      </if>
+      <if test="cpCode != null">
+        and cp_code=#{cpCode,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+
+  <select id="findOrderByWayBillNo" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from wms_order
+    <where>
+      is_usable=1
+      and is_cancel=0
+      <if test="tenantId != null">
+        and tenant_id=#{tenantId,jdbcType=BIGINT}
+      </if>
+      <if test="waybillCode != null">
+        and waybill_code=#{waybillCode,jdbcType=VARCHAR}
+      </if>
+      limit 1
+    </where>
+  </select>
+
+  <select id="selectOneOrderByPrimaryKey" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from wms_order
+    where wms_order_id = #{wmsOrderId,jdbcType=BIGINT}
+    and tenant_id=#{tenantId,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectByPrimaryKeys" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    from wms_order
+    <where>
+      <if test="set != null and set.size() != 0">
+        and wms_order_id IN
+        <foreach collection="set" index="index" item="item" open="(" close=")" separator=",">
+          #{item,jdbcType=BIGINT}
+        </foreach>
+        and is_usable = 1
+        and is_cancel = 0
+        and stop_state = 0
+      </if>
+    </where>
+  </select>
+
+  <select id="listInSaleOrderIdsAndTenantId" resultMap="BaseResultMap">
+    SELECT
+      <include refid="Base_Column_List"/>
+    FROM wms_order
+    <where>
+        <if test="saleOrderIds != null and saleOrderIds.size() != 0">
+            and sale_order_id in
+            <foreach collection="saleOrderIds" index="index" item="item" open="(" close=")" separator=",">
+                #{item,jdbcType=BIGINT}
+            </foreach>
+        </if>
+        <if test="tenantId != null">
+            and tenant_id = #{tenantId,jdbcType=BIGINT}
+            and is_usable = 1
+            and is_cancel = 0
+        </if>
+    </where>
+  </select>
+
+  <select id="countPrintedOrderByIds" resultType="long">
+    SELECT wms_order_id wmsOrderId
+    FROM wms_order w
+    where w.courier_print_mark_state = 2
+    and w.tenant_id = #{tenantId,jdbcType=BIGINT}
+    and w.wms_order_id in
+    <foreach collection="wmsOrderIds" item="wmsOrderId" open="(" separator="," close=")">
+      #{wmsOrderId,jdbcType=BIGINT}
+    </foreach>
+  </select>
+
+  <select id="queryStateCount" parameterType="map" resultType="int">
+    SELECT count(1)
+    FROM wms_order
+    where is_usable = 1
+    and tenant_id = #{tenantId,jdbcType=BIGINT}
+    and wms_order_state = #{state,jdbcType=SMALLINT}
+    <if test="type != null and type == 0">
+      and is_cancel = 0
+    </if>
+    <if test="type != null and type == 1">
+      and is_cancel = 0 and real_weight=0
+    </if>
+  </select>
+
+
+</mapper>
