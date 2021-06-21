@@ -1,0 +1,72 @@
+@Configuration
+@Order(1)
+public class DruidSystemDataSourceConfiguration {
+
+    public static final String DYNAMIC_SHARDING = "Dynamic-Sharding-JDBC";
+
+
+
+    /**
+     * 交易数据源
+     * @return
+     */
+    @Bean(name = "tradeDruidDataSource")
+    @ConfigurationProperties(prefix = "spring.datasource.tradesystem")
+    public DruidDataSource tradeDruidDataSource(){
+        return new DruidDataSource();
+    }
+
+    /**
+     * 交易数据源2号
+     * @return
+     */
+    @Bean(name = "tradeDruidDataSource2")
+    @ConfigurationProperties(prefix = "spring.datasource.tradesystem2")
+    public DruidDataSource tradeDruidDataSource2(){
+        return new DruidDataSource();
+    }
+
+    /**
+     * 交易数据源Sharding JDBC配置
+     * @return
+     */
+    @Bean(name = "tradeSystemDataSource")
+    @Primary
+    @DependsOn("tradeDruidDataSource")
+    public DataSource tradeSystemDataSource(@Autowired DruidDataSource tradeDruidDataSource) throws Exception{
+
+        ShardingRuleConfiguration shardJdbcConfig = new ShardingRuleConfiguration();
+        shardJdbcConfig.getTableRuleConfigs().add(orderRuleConfig());
+        shardJdbcConfig.setDefaultDataSourceName(DatasourceEnum.DATASOURCE_1.getValue());
+
+        Properties props = new Properties();
+        
+        props.setProperty("sql.show",Boolean.TRUE.toString());
+
+        Map<String,DataSource> dataSourceMap = new LinkedHashMap<>() ;
+        dataSourceMap.put(DatasourceEnum.DATASOURCE_1.getValue(),tradeDruidDataSource) ;
+        // 多个分库配置
+//        dataSourceMap.put(DatasourceEnum.DATASOURCE_2.getValue(),tradeDruidDataSource2) ;
+        OrchestrationConfiguration orchestrationConfig = new OrchestrationConfiguration(
+                DYNAMIC_SHARDING, new RegistryCenterConfiguration("localRegisterCenter"),
+                false);
+        return OrchestrationShardingDataSourceFactory.createDataSource(dataSourceMap, shardJdbcConfig, props,
+                orchestrationConfig);
+
+    }
+
+    /**
+     * 订单分片规则
+     */
+    private TableRuleConfiguration orderRuleConfig(){
+        //订单表， 多个分片
+        DynamicShardingService.SHARDING_RULE_DATASOURCE =  DatasourceEnum.DATASOURCE_1.getValue();
+        String actualDataNodes =  DatasourceEnum.DATASOURCE_1.getValue() + "." + DatasourceEnum.TABLE_ORDER.getValue() ;
+        TableRuleConfiguration tableRuleConfig = new TableRuleConfiguration(DatasourceEnum.TABLE_ORDER.getValue(), actualDataNodes);
+        //设置分表策略
+        tableRuleConfig.setDatabaseShardingStrategyConfig(new StandardShardingStrategyConfiguration("accountNo", new ShardingDataSourceRule()));
+        tableRuleConfig.setTableShardingStrategyConfig(new StandardShardingStrategyConfiguration("accountNo",new ShardingTableRule()));
+        // 记录订单表的分片规则
+        DynamicShardingService.SHARDING_RULE_TABLE_ORDER = actualDataNodes;
+        return tableRuleConfig;
+    }
