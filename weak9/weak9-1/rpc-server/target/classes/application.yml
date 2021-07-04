@@ -1,0 +1,18 @@
+
+logging:
+  config: classpath:logback-spring.xml
+server:
+  port: 28085
+spring:
+  application:
+    name: rpc-server
+
+rpc:
+  server:
+      zk:
+        root: /rpc
+        addr: 10.10.20.111:2181,10.10.20.112:2181,10.10.20.113:2181
+        switch: true
+        timeout: 10000
+  network:
+      port: 38888
