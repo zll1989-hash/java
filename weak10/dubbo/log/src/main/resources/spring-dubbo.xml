@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://code.alibabatech.com/schema/dubbo
+    https://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:consumer check="false" retries="0"/>
+
+    <dubbo:reference id="idGenerator"
+                     interface="com.ejlerp.cache.api.IDGenerator"
+                     version="${service.version:0.1}" timeout="60000"/>
+
+</beans>

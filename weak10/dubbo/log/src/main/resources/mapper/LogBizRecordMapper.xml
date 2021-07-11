@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ejlerp.log.mapper.LogBizRecordMapper">
+  <resultMap id="BaseResultMap" type="com.ejlerp.log.domain.LogBizRecordDO">
+    <!--@mbg.generated-->
+    <!--@Table log_biz_record-->
+    <id column="log_biz_record_id" jdbcType="BIGINT" property="logBizRecordId" />
+    <result column="module_type" jdbcType="VARCHAR" property="moduleType" />
+    <result column="operation_type" jdbcType="VARCHAR" property="operationType" />
+    <result column="operation_result" jdbcType="LONGVARCHAR" property="operationResult" />
+    <result column="entity_table_name" jdbcType="VARCHAR" property="entityTableName" />
+    <result column="entity_id_name" jdbcType="VARCHAR" property="entityIdName" />
+    <result column="entity_id" jdbcType="BIGINT" property="entityId" />
+    <result column="is_exception" jdbcType="TINYINT" property="exception" />
+    <result column="is_failed" jdbcType="TINYINT" property="failed" />
+    <result column="is_visible_to_client" jdbcType="TINYINT" property="visibleToClient" />
+    <result column="operator_show_name" jdbcType="VARCHAR" property="operatorShowName" />
+    <result column="creator" jdbcType="BIGINT" property="creator" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="last_updater" jdbcType="BIGINT" property="lastUpdater" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="is_usable" jdbcType="TINYINT" property="usable" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    log_biz_record_id, module_type, operation_type, operation_result, entity_table_name, 
+    entity_id_name, entity_id, is_exception, is_failed, is_visible_to_client, operator_show_name, 
+    creator, create_time, last_updater, last_update_time, is_usable, tenant_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from log_biz_record
+    where log_biz_record_id = #{logBizRecordId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from log_biz_record
+    where log_biz_record_id = #{logBizRecordId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ejlerp.log.domain.LogBizRecordDO">
+    <!--@mbg.generated-->
+      insert into log_biz_record (log_biz_record_id, module_type, operation_type,
+      operation_result, entity_table_name, entity_id_name,
+      entity_id, is_exception, is_failed,
+      is_visible_to_client, operator_show_name, creator,
+      create_time, last_updater, last_update_time,
+      is_usable, tenant_id)
+      values (#{logBizRecordId,jdbcType=BIGINT}, #{moduleType,jdbcType=VARCHAR}, #{operationType,jdbcType=VARCHAR},
+      #{operationResult,jdbcType=LONGVARCHAR}, #{entityTableName,jdbcType=VARCHAR}, #{entityIdName,jdbcType=VARCHAR},
+      #{entityId,jdbcType=BIGINT}, #{exception,jdbcType=TINYINT}, #{failed,jdbcType=TINYINT},
+      #{visibleToClient,jdbcType=TINYINT}, #{operatorShowName,jdbcType=VARCHAR}, #{creator,jdbcType=BIGINT},
+      #{createTime,jdbcType=TIMESTAMP}, #{lastUpdater,jdbcType=BIGINT}, #{lastUpdateTime,jdbcType=TIMESTAMP},
+      #{usable,jdbcType=TINYINT}, #{tenantId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ejlerp.log.domain.LogBizRecordDO">
+    <!--@mbg.generated-->
+    insert into log_biz_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="logBizRecordId != null">
+        log_biz_record_id,
+      </if>
+      <if test="moduleType != null">
+        module_type,
+      </if>
+      <if test="operationType != null">
+        operation_type,
+      </if>
+      <if test="operationResult != null">
+        operation_result,
+      </if>
+      <if test="entityTableName != null">
+        entity_table_name,
+      </if>
+      <if test="entityIdName != null">
+        entity_id_name,
+      </if>
+      <if test="entityId != null">
+        entity_id,
+      </if>
+      <if test="exception != null">
+        is_exception,
+      </if>
+      <if test="failed != null">
+        is_failed,
+      </if>
+      <if test="visibleToClient != null">
+        is_visible_to_client,
+      </if>
+      <if test="operatorShowName != null">
+        operator_show_name,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="lastUpdater != null">
+        last_updater,
+      </if>
+      <if test="lastUpdateTime != null">
+        last_update_time,
+      </if>
+      <if test="usable != null">
+        is_usable,
+      </if>
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="logBizRecordId != null">
+        #{logBizRecordId,jdbcType=BIGINT},
+      </if>
+      <if test="moduleType != null">
+        #{moduleType,jdbcType=VARCHAR},
+      </if>
+      <if test="operationType != null">
+        #{operationType,jdbcType=VARCHAR},
+      </if>
+      <if test="operationResult != null">
+        #{operationResult,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="entityTableName != null">
+        #{entityTableName,jdbcType=VARCHAR},
+      </if>
+      <if test="entityIdName != null">
+        #{entityIdName,jdbcType=VARCHAR},
+      </if>
+      <if test="entityId != null">
+        #{entityId,jdbcType=BIGINT},
+      </if>
+      <if test="exception != null">
+        #{exception,jdbcType=TINYINT},
+      </if>
+      <if test="failed != null">
+        #{failed,jdbcType=TINYINT},
+      </if>
+      <if test="visibleToClient != null">
+          #{visibleToClient,jdbcType=TINYINT},
+      </if>
+      <if test="operatorShowName != null">
+        #{operatorShowName,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdater != null">
+        #{lastUpdater,jdbcType=BIGINT},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usable != null">
+        #{usable,jdbcType=TINYINT},
+      </if>
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ejlerp.log.domain.LogBizRecordDO">
+    <!--@mbg.generated-->
+    update log_biz_record
+    <set>
+      <if test="moduleType != null">
+        module_type = #{moduleType,jdbcType=VARCHAR},
+      </if>
+      <if test="operationType != null">
+        operation_type = #{operationType,jdbcType=VARCHAR},
+      </if>
+      <if test="operationResult != null">
+        operation_result = #{operationResult,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="entityTableName != null">
+        entity_table_name = #{entityTableName,jdbcType=VARCHAR},
+      </if>
+      <if test="entityIdName != null">
+        entity_id_name = #{entityIdName,jdbcType=VARCHAR},
+      </if>
+      <if test="entityId != null">
+        entity_id = #{entityId,jdbcType=BIGINT},
+      </if>
+      <if test="exception != null">
+        is_exception = #{exception,jdbcType=TINYINT},
+      </if>
+      <if test="failed != null">
+        is_failed = #{failed,jdbcType=TINYINT},
+      </if>
+      <if test="visibleToClient != null">
+          is_visible_to_client = #{visibleToClient,jdbcType=TINYINT},
+      </if>
+      <if test="operatorShowName != null">
+        operator_show_name = #{operatorShowName,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdater != null">
+        last_updater = #{lastUpdater,jdbcType=BIGINT},
+      </if>
+      <if test="lastUpdateTime != null">
+        last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usable != null">
+        is_usable = #{usable,jdbcType=TINYINT},
+      </if>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where log_biz_record_id = #{logBizRecordId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ejlerp.log.domain.LogBizRecordDO">
+    <!--@mbg.generated-->
+      update log_biz_record
+      set module_type = #{moduleType,jdbcType=VARCHAR},
+      operation_type = #{operationType,jdbcType=VARCHAR},
+      operation_result = #{operationResult,jdbcType=LONGVARCHAR},
+      entity_table_name = #{entityTableName,jdbcType=VARCHAR},
+      entity_id_name = #{entityIdName,jdbcType=VARCHAR},
+      entity_id = #{entityId,jdbcType=BIGINT},
+      is_exception = #{exception,jdbcType=TINYINT},
+      is_failed = #{failed,jdbcType=TINYINT},
+      is_visible_to_client = #{visibleToClient,jdbcType=TINYINT},
+      operator_show_name = #{operatorShowName,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      last_updater = #{lastUpdater,jdbcType=BIGINT},
+      last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      is_usable = #{usable,jdbcType=TINYINT},
+      tenant_id = #{tenantId,jdbcType=BIGINT}
+      where log_biz_record_id = #{logBizRecordId,jdbcType=BIGINT}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update log_biz_record
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="module_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when log_biz_record_id = #{item.logBizRecordId,jdbcType=BIGINT} then #{item.moduleType,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="operation_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when log_biz_record_id = #{item.logBizRecordId,jdbcType=BIGINT} then #{item.operationType,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="operation_result = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when log_biz_record_id = #{item.logBizRecordId,jdbcType=BIGINT} then #{item.operationResult,jdbcType=LONGVARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="entity_table_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when log_biz_record_id = #{item.logBizRecordId,jdbcType=BIGINT} then #{item.entityTableName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="entity_id_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when log_biz_record_id = #{item.logBizRecordId,jdbcType=BIGINT} then #{item.entityIdName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="entity_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when log_biz_record_id = #{item.logBizRecordId,jdbcType=BIGINT} then #{item.entityId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="is_exception = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when log_biz_record_id = #{item.logBizRecordId,jdbcType=BIGINT} then #{item.exception,jdbcType=TINYINT}
+        </foreach>
+      </trim>
+      <trim prefix="is_failed = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when log_biz_record_id = #{item.logBizRecordId,jdbcType=BIGINT} then #{item.failed,jdbcType=TINYINT}
+        </foreach>
+      </trim>
+      <trim prefix="is_visible_to_client = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+            when log_biz_record_id = #{item.logBizRecordId,jdbcType=BIGINT} then
+            #{item.visibleToClient,jdbcType=TINYINT}
+        </foreach>
+      </trim>
+      <trim prefix="operator_show_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when log_biz_record_id = #{item.logBizRecordId,jdbcType=BIGINT} then #{item.operatorShowName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="creator = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when log_biz_record_id = #{item.logBizRecordId,jdbcType=BIGINT} then #{item.creator,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when log_biz_record_id = #{item.logBizRecordId,jdbcType=BIGINT} then #{item.createTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="last_updater = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when log_biz_record_id = #{item.logBizRecordId,jdbcType=BIGINT} then #{item.lastUpdater,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="last_update_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when log_biz_record_id = #{item.logBizRecordId,jdbcType=BIGINT} then #{item.lastUpdateTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="is_usable = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when log_biz_record_id = #{item.logBizRecordId,jdbcType=BIGINT} then #{item.usable,jdbcType=TINYINT}
+        </foreach>
+      </trim>
+      <trim prefix="tenant_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when log_biz_record_id = #{item.logBizRecordId,jdbcType=BIGINT} then #{item.tenantId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+    </trim>
+    where log_biz_record_id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.logBizRecordId,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" parameterType="map">
+    <!--@mbg.generated-->
+    insert into log_biz_record
+    (log_biz_record_id, module_type, operation_type, operation_result, entity_table_name, 
+      entity_id_name, entity_id, is_exception, is_failed, is_visible_to_client, operator_show_name, 
+      creator, create_time, last_updater, last_update_time, is_usable, tenant_id)
+    values
+    <foreach collection="list" item="item" separator=",">
+        (#{item.logBizRecordId,jdbcType=BIGINT}, #{item.moduleType,jdbcType=VARCHAR},
+        #{item.operationType,jdbcType=VARCHAR},
+        #{item.operationResult,jdbcType=LONGVARCHAR}, #{item.entityTableName,jdbcType=VARCHAR},
+        #{item.entityIdName,jdbcType=VARCHAR}, #{item.entityId,jdbcType=BIGINT}, #{item.exception,jdbcType=TINYINT},
+        #{item.failed,jdbcType=TINYINT}, #{item.visibleToClient,jdbcType=TINYINT},
+        #{item.operatorShowName,jdbcType=VARCHAR},
+        #{item.creator,jdbcType=BIGINT}, #{item.createTime,jdbcType=TIMESTAMP}, #{item.lastUpdater,jdbcType=BIGINT},
+        #{item.lastUpdateTime,jdbcType=TIMESTAMP}, #{item.usable,jdbcType=TINYINT}, #{item.tenantId,jdbcType=BIGINT}
+        )
+    </foreach>
+  </insert>
+
+<!--auto generated by MybatisCodeHelper on 2021-05-17-->
+  <select id="listByAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from log_biz_record
+    <where>
+      <if test="logBizRecordId != null">
+        and log_biz_record_id=#{logBizRecordId,jdbcType=BIGINT}
+      </if>
+      <if test="moduleType != null and moduleType != ''">
+        and module_type=#{moduleType,jdbcType=VARCHAR}
+      </if>
+      <if test="operationType != null and operationType != ''">
+        and operation_type=#{operationType,jdbcType=VARCHAR}
+      </if>
+      <if test="operationResult != null and operationResult != ''">
+        and operation_result=#{operationResult,jdbcType=LONGVARCHAR}
+      </if>
+      <if test="entityTableName != null and entityTableName != ''">
+        and entity_table_name=#{entityTableName,jdbcType=VARCHAR}
+      </if>
+      <if test="entityIdName != null and entityIdName != ''">
+        and entity_id_name=#{entityIdName,jdbcType=VARCHAR}
+      </if>
+      <if test="entityId != null">
+        and entity_id=#{entityId,jdbcType=BIGINT}
+      </if>
+      <if test="exception != null">
+        and is_exception=#{exception,jdbcType=TINYINT}
+      </if>
+      <if test="failed != null">
+        and is_failed=#{failed,jdbcType=TINYINT}
+      </if>
+      <if test="visibleToClient != null">
+        and is_visible_to_client=#{visibleToClient,jdbcType=TINYINT}
+      </if>
+      <if test="operatorShowName != null and operatorShowName != ''">
+        and operator_show_name=#{operatorShowName,jdbcType=VARCHAR}
+      </if>
+      <if test="creator != null">
+        and creator=#{creator,jdbcType=BIGINT}
+      </if>
+      <if test="createTime != null">
+        and create_time=#{createTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="lastUpdater != null">
+        and last_updater=#{lastUpdater,jdbcType=BIGINT}
+      </if>
+      <if test="lastUpdateTime != null">
+        and last_update_time=#{lastUpdateTime,jdbcType=TIMESTAMP}
+      </if>
+      and is_usable = 1
+    </where>
+  </select>
+
+  <select id="countByPage" parameterType="com.ejlerp.log.domain.LogBizRecordDO" resultType="java.lang.Long">
+    SELECT
+    COUNT(1)
+    FROM  log_biz_record
+    <where>
+      <if test="logBizRecordId != null">
+        and log_biz_record_id=#{logBizRecordId,jdbcType=BIGINT}
+      </if>
+      <if test="moduleType != null and moduleType != ''">
+        and module_type=#{moduleType,jdbcType=VARCHAR}
+      </if>
+      <if test="operationType != null and operationType != ''">
+        and operation_type=#{operationType,jdbcType=VARCHAR}
+      </if>
+      <if test="operationResult != null and operationResult != ''">
+        and operation_result=#{operationResult,jdbcType=LONGVARCHAR}
+      </if>
+      <if test="entityTableName != null and entityTableName != ''">
+        and entity_table_name=#{entityTableName,jdbcType=VARCHAR}
+      </if>
+      <if test="entityIdName != null and entityIdName != ''">
+        and entity_id_name=#{entityIdName,jdbcType=VARCHAR}
+      </if>
+      <if test="entityId != null">
+        and entity_id=#{entityId,jdbcType=BIGINT}
+      </if>
+      <if test="tenantId != null">
+        and tenant_id=#{tenantId,jdbcType=BIGINT}
+      </if>
+      <if test="exception != null">
+        and is_exception=#{exception,jdbcType=TINYINT}
+      </if>
+      <if test="failed != null">
+        and is_failed=#{failed,jdbcType=TINYINT}
+      </if>
+      <if test="visibleToClient != null">
+        and is_visible_to_client=#{visibleToClient,jdbcType=TINYINT}
+      </if>
+      <if test="operatorShowName != null and operatorShowName != ''">
+        and operator_show_name=#{operatorShowName,jdbcType=VARCHAR}
+      </if>
+      <if test="creator != null">
+        and creator=#{creator,jdbcType=BIGINT}
+      </if>
+      <if test="createTime != null">
+        and create_time=#{createTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="lastUpdater != null">
+        and last_updater=#{lastUpdater,jdbcType=BIGINT}
+      </if>
+      <if test="lastUpdateTime != null">
+        and last_update_time=#{lastUpdateTime,jdbcType=TIMESTAMP}
+      </if>
+      and is_usable = 1
+    </where>
+  </select>
+
+  <select id="listByPage" parameterType="com.ejlerp.log.domain.LogBizRecordDTO" resultMap="BaseResultMap">
+    SELECT
+    a.log_biz_record_id, module_type, operation_type, operation_result,
+    entity_table_name, entity_id_name, entity_id, is_exception,
+    is_failed, is_visible_to_client, operator_show_name, creator, create_time,
+    last_updater, last_update_time, is_usable, tenant_id
+    FROM log_biz_record as a,
+    (SELECT lbr.log_biz_record_id FROM log_biz_record as lbr
+    <where>
+      <if test="logBizRecordId != null">
+        and log_biz_record_id=#{logBizRecordId,jdbcType=BIGINT}
+      </if>
+      <if test="moduleType != null and moduleType != ''">
+        and module_type=#{moduleType,jdbcType=VARCHAR}
+      </if>
+      <if test="operationType != null and operationType != ''">
+        and operation_type=#{operationType,jdbcType=VARCHAR}
+      </if>
+      <if test="operationResult != null and operationResult != ''">
+        and operation_result=#{operationResult,jdbcType=LONGVARCHAR}
+      </if>
+      <if test="entityTableName != null and entityTableName != ''">
+        and entity_table_name=#{entityTableName,jdbcType=VARCHAR}
+      </if>
+      <if test="entityIdName != null and entityIdName != ''">
+        and entity_id_name=#{entityIdName,jdbcType=VARCHAR}
+      </if>
+      <if test="entityId != null">
+        and entity_id=#{entityId,jdbcType=BIGINT}
+      </if>
+      <if test="tenantId != null">
+        and tenant_id=#{tenantId,jdbcType=BIGINT}
+      </if>
+      <if test="exception != null">
+        and is_exception=#{exception,jdbcType=TINYINT}
+      </if>
+      <if test="failed != null">
+        and is_failed=#{failed,jdbcType=TINYINT}
+      </if>
+      <if test="visibleToClient != null">
+        and is_visible_to_client=#{visibleToClient,jdbcType=TINYINT}
+      </if>
+      <if test="operatorShowName != null and operatorShowName != ''">
+        and operator_show_name=#{operatorShowName,jdbcType=VARCHAR}
+      </if>
+      <if test="creator != null">
+        and creator=#{creator,jdbcType=BIGINT}
+      </if>
+      <if test="createTime != null">
+        and create_time=#{createTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="lastUpdater != null">
+        and last_updater=#{lastUpdater,jdbcType=BIGINT}
+      </if>
+      <if test="lastUpdateTime != null">
+        and last_update_time=#{lastUpdateTime,jdbcType=TIMESTAMP}
+      </if>
+      and is_usable = 1
+    </where>
+    ORDER BY lbr.create_time DESC
+    LIMIT #{page},#{pageSize}
+    ) as b
+    WHERE a.log_biz_record_id = b.log_biz_record_id;
+  </select>
+
+
+</mapper>
