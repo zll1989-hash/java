@@ -1,0 +1,3 @@
+exception=cn.egenie.architect.trace.dubbo.filter.ServiceExceptionFilter
+traceConsumer=cn.egenie.architect.trace.dubbo.filter.TraceDubboConsumerFilter
+traceProvider=cn.egenie.architect.trace.dubbo.filter.TraceDubboProviderFilter
