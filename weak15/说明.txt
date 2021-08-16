@@ -7,6 +7,9 @@
 自主研发了链路监控，并且整合了日志中心，
 提供通过链路id查找这个链路日志的工程，方便线上问题查找。
 
+
+对比了：框架的链路追踪  和  自主研发的链路日志追踪  （如里面截图）
+
 异步链路接入方案
 利用javaagent， 增加启动参数
 -javaagent:/Users/dengxiaolin/.m2/repository/cn/egenie/architect/trace/trace-agent/1.0.0-SNAPSHOT/trace-agent-1.0.0-SNAPSHOT.jar
@@ -27,6 +30,22 @@
 商品库存解锁记录场景
   1、超时未支付，比如30分钟则订单失效关闭
   2、下单成功，创建订单业务失败，订单回滚
+  
+
+研究了第三方支付平台：
+蚂蚁金服开放平台
+
+地址：https://openhome.alipay.com/docCenter/docCenter.htm
+介绍：https://opendocs.alipay.com/open/200/105304
+支付宝扫码登录即可
+网页移动应用开发指南
+
+地址：https://opendocs.alipay.com/open/200
+申请应用：https://openhome.alipay.com/platform/developerIndex.htm
+核心是获取APPID
+
+
+  
  
 库存解锁防止继续支付：
 1、30分支付超时则无法支付订单
